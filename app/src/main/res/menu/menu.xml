@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_trangChu"
+        android:title="Trang Chủ"
+        android:icon="@drawable/trangchu"
+        />
+
+    <item android:id="@+id/menu_thucDon"
+        android:title="Thực Đơn"
+        android:icon="@drawable/thucdon"
+        />
+
+    <item android:id="@+id/menu_hoaDon"
+        android:title="Hóa Đơn"
+        android:icon="@drawable/hoadon"
+        />
+
+    <item android:id="@+id/menu_Ban"
+        android:title="Bàn"
+        android:icon="@drawable/ban"
+        />
+
+    <item android:id="@+id/menu_thongKe"
+        android:title="Thống Kê"
+        android:icon="@drawable/thongke"
+        />
+
+</menu>
