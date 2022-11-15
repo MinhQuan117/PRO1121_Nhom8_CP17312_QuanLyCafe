@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">PRO1121_CP17312_Nhom8_QuanLyCafe</string>
+    <string name="enter_username">Tên tài khoản</string>
+    <string name="enter_password">Mật khẩu</string>
+    <string name="login">Đăng nhập</string>
 </resources>

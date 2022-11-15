@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PRO1121_CP17312_Nhom8_QuanLyCafe/app/src/main/res/drawable/dangnhap.xml" value="0.1855" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/PRO1121_CP17312_Nhom8_QuanLyCafe/app/src/main/res/layout/activity_dang_nhap.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PRO1121_CP17312_Nhom8_QuanLyCafe/app/src/main/res/layout/activity_fragment_ban.xml" value="0.2064814814814815" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PRO1121_CP17312_Nhom8_QuanLyCafe/app/src/main/res/layout/activity_fragment_thuc_don.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PRO1121_CP17312_Nhom8_QuanLyCafe/app/src/main/res/layout/activity_fragment_trang_chu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/PRO1121_CP17312_Nhom8_QuanLyCafe/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
       </map>
     </option>
