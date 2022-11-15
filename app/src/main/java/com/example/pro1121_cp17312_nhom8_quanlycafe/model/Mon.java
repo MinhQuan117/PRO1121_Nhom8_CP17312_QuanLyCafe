@@ -1,9 +1,18 @@
 package com.example.pro1121_cp17312_nhom8_quanlycafe.model;
 
-public class Drinks {
+public class Mon {
     int MaMon, MaLoai;
     String TenMon,GiaTien,TinhTrang;
     byte[] HinhAnh;
+
+    public Mon(int maMon, int maLoai, String tenMon, String giaTien, String tinhTrang, byte[] hinhAnh) {
+        MaMon = maMon;
+        MaLoai = maLoai;
+        TenMon = tenMon;
+        GiaTien = giaTien;
+        TinhTrang = tinhTrang;
+        HinhAnh = hinhAnh;
+    }
 
     public int getMaMon() {
         return MaMon;

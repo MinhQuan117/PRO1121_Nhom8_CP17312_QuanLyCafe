@@ -1,8 +1,19 @@
 package com.example.pro1121_cp17312_nhom8_quanlycafe.model;
 
-public class User {
+public class NhanVien {
     String HOTENNV,TENDN,MATKHAU,EMAIL,SDT,GIOITINH,NGAYSINH;
-    int MANV,MAQUYEN;
+    int MANV;
+
+    public NhanVien(String HOTENNV, String TENDN, String MATKHAU, String EMAIL, String SDT, String GIOITINH, String NGAYSINH, int MANV) {
+        this.HOTENNV = HOTENNV;
+        this.TENDN = TENDN;
+        this.MATKHAU = MATKHAU;
+        this.EMAIL = EMAIL;
+        this.SDT = SDT;
+        this.GIOITINH = GIOITINH;
+        this.NGAYSINH = NGAYSINH;
+        this.MANV = MANV;
+    }
 
     public String getHOTENNV() {
         return HOTENNV;
@@ -66,13 +77,5 @@ public class User {
 
     public void setMANV(int MANV) {
         this.MANV = MANV;
-    }
-
-    public int getMAQUYEN() {
-        return MAQUYEN;
-    }
-
-    public void setMAQUYEN(int MAQUYEN) {
-        this.MAQUYEN = MAQUYEN;
     }
 }

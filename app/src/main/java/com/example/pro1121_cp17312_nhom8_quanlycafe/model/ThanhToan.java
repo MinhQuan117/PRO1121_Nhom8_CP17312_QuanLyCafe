@@ -5,6 +5,13 @@ public class ThanhToan {
     int SoLuong, GiaTien;
     byte[] HinhAnh;
 
+    public ThanhToan(String tenMon, int soLuong, int giaTien, byte[] hinhAnh) {
+        TenMon = tenMon;
+        SoLuong = soLuong;
+        GiaTien = giaTien;
+        HinhAnh = hinhAnh;
+    }
+
     public String getTenMon() {
         return TenMon;
     }

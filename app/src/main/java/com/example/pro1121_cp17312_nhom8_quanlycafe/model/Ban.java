@@ -1,9 +1,15 @@
 package com.example.pro1121_cp17312_nhom8_quanlycafe.model;
 
-public class Table {
+public class Ban {
     int MaBan;
     String TenBan;
     boolean DuocChon;
+
+    public Ban(int maBan, String tenBan, boolean duocChon) {
+        MaBan = maBan;
+        TenBan = tenBan;
+        DuocChon = duocChon;
+    }
 
     public int getMaBan() {
         return MaBan;
