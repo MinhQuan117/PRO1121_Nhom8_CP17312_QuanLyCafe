@@ -7,80 +7,108 @@
     tools:context=".DangNhapActivity"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#dcd2ca">
+>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="160dp"
-        android:src="@drawable/logocoffee"/>
+        android:src="@drawable/logocoffee" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="30dp">
-
-        <TextView
+        android:layout_marginTop="20dp"
+        android:layout_margin="20dp"
+        >
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtl_login_TenDN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="USERNAME"
-            android:textSize="20dp"
-            android:textColor="@color/black" />
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/enter_username"
+            app:hintTextColor="@color/black"
+            app:boxStrokeColor="@color/black"
 
-        <EditText
-            android:id="@+id/edUsername"
+            app:startIconTint="@color/black"
+            app:startIconDrawable="@drawable/icontentaikhoan"
+            android:textColorHint="@color/black"
+            app:endIconTint="@color/black"
+            app:endIconMode="clear_text"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edUsername"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:inputType="text"
+                android:text="thungansang"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtl_login_MatKhau"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="Username"
-            android:text="thungansang"/>
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/enter_password"
+            app:hintTextColor="@color/black"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black"
+            app:boxStrokeWidthFocused="2dp"
+            app:startIconTint="@color/black"
+            app:endIconTint="@color/black"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/iconmatkhau"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edPassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:inputType="textPassword"
+                android:text="123456"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp">
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+            android:text="Lưu đăng nhập"
+            android:buttonTint="@color/black"
+            android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="PASSWORD"
-            android:textSize="20dp"
-            android:textColor="@color/black" />
+            android:layout_height="match_parent"
+            android:text="Quên mật khẩu"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingLeft="90dp"
+            android:paddingTop="14dp"/>
 
-        <EditText
-            android:id="@+id/edPassword"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:inputType="textPassword"
-            android:hint="Password"
-            android:text="123456"/>
     </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Quên mật khẩu?"
-        android:textSize="15dp"
-        android:textColor="@color/black"
-        android:gravity="right"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="15dp"
-        android:textColorHighlight="@color/purple_200"
-        />
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textColor="@color/white"
+
         android:backgroundTint="@color/black"
-        android:text="Đăng nhập"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
+        />
 
 </LinearLayout>
