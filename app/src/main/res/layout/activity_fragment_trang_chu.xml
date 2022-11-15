@@ -9,11 +9,21 @@
 
     >
 
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="TRANG CHỦ"
-        android:gravity="center"
-        />
+        android:layout_height="120dp"
+        android:src="@drawable/logocoffee"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        android:layout_marginTop="10dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black" />
+
+
 
 </LinearLayout>
