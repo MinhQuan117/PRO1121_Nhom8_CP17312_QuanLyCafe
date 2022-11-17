@@ -5,15 +5,6 @@ public class Mon {
     String TenMon,GiaTien,TinhTrang;
     byte[] HinhAnh;
 
-    public Mon(int maMon, int maLoai, String tenMon, String giaTien, String tinhTrang, byte[] hinhAnh) {
-        MaMon = maMon;
-        MaLoai = maLoai;
-        TenMon = tenMon;
-        GiaTien = giaTien;
-        TinhTrang = tinhTrang;
-        HinhAnh = hinhAnh;
-    }
-
     public int getMaMon() {
         return MaMon;
     }
@@ -45,11 +36,9 @@ public class Mon {
     public void setGiaTien(String giaTien) {
         GiaTien = giaTien;
     }
-
     public String getTinhTrang() {
         return TinhTrang;
     }
-
     public void setTinhTrang(String tinhTrang) {
         TinhTrang = tinhTrang;
     }
