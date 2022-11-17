@@ -14,6 +14,13 @@
         android:theme="@style/Theme.PRO1121_CP17312_Nhom8_QuanLyCafe"
         tools:targetApi="31">
         <activity
+            android:name=".HoaDonChiTietActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".DangNhapActivity"
             android:exported="false" />
         <activity
