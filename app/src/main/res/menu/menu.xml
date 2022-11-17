@@ -6,11 +6,6 @@
         android:icon="@drawable/trangchu"
         />
 
-    <item android:id="@+id/menu_thucDon"
-        android:title="Thực Đơn"
-        android:icon="@drawable/thucdon"
-        />
-
     <item android:id="@+id/menu_hoaDon"
         android:title="Hóa Đơn"
         android:icon="@drawable/hoadon"
