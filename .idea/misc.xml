@@ -5,6 +5,15 @@
       <map>
         <entry key="..\:/Users/Admin/AndroidStudioProjects/PRO1121_CP17312_Nhom8_QuanLyCafe/app/src/main/res/layout/activity_dang_nhap.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/PRO1121_CP17312_Nhom8_QuanLyCafe/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PRO1121_Nhom8_CP17312_QuanLyCafe/app/src/main/res/layout/activity_fragment_hoa_don.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PRO1121_Nhom8_CP17312_QuanLyCafe/app/src/main/res/layout/activity_fragment_thong_ke.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PRO1121_Nhom8_CP17312_QuanLyCafe/app/src/main/res/layout/activity_fragment_thuc_don.xml" value="0.264" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PRO1121_Nhom8_CP17312_QuanLyCafe/app/src/main/res/layout/activity_fragment_trang_chu.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PRO1121_Nhom8_CP17312_QuanLyCafe/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PRO1121_Nhom8_CP17312_QuanLyCafe/app/src/main/res/layout/activity_man_hinh_cho.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PRO1121_Nhom8_CP17312_QuanLyCafe/app/src/main/res/layout/fragment_cac_loai_do_uong.xml" value="0.2359375" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PRO1121_Nhom8_CP17312_QuanLyCafe/app/src/main/res/layout/item_dialog.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PRO1121_Nhom8_CP17312_QuanLyCafe/app/src/main/res/layout/item_recyclerview_menu.xml" value="0.25" />
       </map>
     </option>
   </component>
