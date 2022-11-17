@@ -37,7 +37,7 @@ public class NhanVienDAO {
 
     public long SuaNhanVien(NhanVien nhanVienDTO,int manv){
         ContentValues contentValues = new ContentValues();
-        ContentValues contentValues = new ContentValues();
+
         contentValues.put(DbHelper.HOTENNV,nhanVienDTO.getHOTENNV());
         contentValues.put(DbHelper.TENDN,nhanVienDTO.getTENDN());
         contentValues.put(DbHelper.MATKHAU,nhanVienDTO.getMATKHAU());
@@ -48,7 +48,7 @@ public class NhanVienDAO {
         contentValues.put(DbHelper.MAQUYEN,nhanVienDTO.getMAQUYEN());
 
         long ktra = database.update(DbHelper.TBL_NHANVIEN,contentValues,
-                DbHelper.TBL_NHANVIEN_MANV+" = "+manv,null);
+                DbHelper.MANV+" = "+manv,null);
         return ktra;
     }
 
@@ -100,7 +100,7 @@ public class NhanVienDAO {
     }
 
     public boolean XoaNV(int manv){
-        long ktra = database.delete(DbHelper.TBL_NHANVIEN,DbHelper.TBL_NHANVIEN_MANV+ " = " +manv
+        long ktra = database.delete(DbHelper.TBL_NHANVIEN,DbHelper.MANV+ " = " +manv
                 ,null);
         if(ktra !=0 ){
             return true;
@@ -111,7 +111,7 @@ public class NhanVienDAO {
 
     public NhanVien LayNVTheoMa(int manv){
         NhanVien nhanVienDTO = new NhanVien();
-        String query = "SELECT * FROM "+DbHelper.TBL_NHANVIEN+" WHERE "+DbHelper.TBL_NHANVIEN_MANV+" = "+manv;
+        String query = "SELECT * FROM "+DbHelper.TBL_NHANVIEN+" WHERE "+DbHelper.MANV+" = "+manv;
         Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
