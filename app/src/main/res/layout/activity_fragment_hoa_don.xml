@@ -6,11 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.FragmentThucDon">
 
-    <TextView
+    <ListView
+        android:id="@+id/lvStatistic"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="HÓA ĐƠN"
-        android:gravity="center"
-        />
+        android:padding="5dp"
+        android:verticalSpacing="15dp"
+        >
+
+    </ListView>
 
 </LinearLayout>
