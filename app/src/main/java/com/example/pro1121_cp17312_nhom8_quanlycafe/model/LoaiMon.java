@@ -5,11 +5,6 @@ public class LoaiMon {
     String TenLoai;
     byte[] HinhAnh;
 
-    public LoaiMon(int maLoai, String tenLoai, byte[] hinhAnh) {
-        MaLoai = maLoai;
-        TenLoai = tenLoai;
-        HinhAnh = hinhAnh;
-    }
 
     public int getMaLoai() {
         return MaLoai;
