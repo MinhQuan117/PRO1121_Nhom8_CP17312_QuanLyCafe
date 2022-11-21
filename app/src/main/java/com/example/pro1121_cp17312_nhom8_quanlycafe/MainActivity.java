@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.FragmentBan;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.FragmentHoaDon;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.FragmentThongKe;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.FragmentThucDon;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.FragmentTrangChu;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         FragmentTrangChu fragmentTrangChu = new FragmentTrangChu();
         FragmentHoaDon fragmentHoaDon = new FragmentHoaDon();
+        FragmentThucDon fragmentThucDon = new FragmentThucDon();
         FragmentBan fragmentBan = new FragmentBan();
         FragmentThongKe fragmentThongKe = new FragmentThongKe();
 
@@ -39,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.menu_trangChu:
                         fragmentManager.beginTransaction().replace(R.id.container_fragment, fragmentTrangChu).commit();
+                        break;
+                    case R.id.menu_thucDon:
+                        fragmentManager.beginTransaction().replace(R.id.container_fragment, fragmentThucDon).commit();
                         break;
                     case R.id.menu_hoaDon:
                         fragmentManager.beginTransaction().replace(R.id.container_fragment, fragmentHoaDon).commit();

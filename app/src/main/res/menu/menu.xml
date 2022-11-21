@@ -5,11 +5,15 @@
         android:title="Trang Chủ"
         android:icon="@drawable/trangchu"
         />
-
+    <item android:id="@+id/menu_thucDon"
+        android:title="Thuc Đơn"
+        android:icon="@drawable/thucdon"
+        />
     <item android:id="@+id/menu_hoaDon"
         android:title="Hóa Đơn"
         android:icon="@drawable/hoadon"
         />
+
 
     <item android:id="@+id/menu_Ban"
         android:title="Bàn"
