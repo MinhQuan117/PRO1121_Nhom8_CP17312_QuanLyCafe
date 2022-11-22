@@ -70,5 +70,13 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
+    public void gotoLoaiMon(LoaiMon loaiMon){
+        FragmentTransaction fragmentTransaction  = getSupportFragmentManager().beginTransaction();
+        FragmentLoaiDoUong fragmentLoaiDoUong = new FragmentLoaiDoUong();
+        fragmentTransaction.replace(R.id.container_fragment,fragmentLoaiDoUong);
+        fragmentTransaction.addToBackStack(FragmentLoaiDoUong.TAG);
+        fragmentTransaction.commit();
+    }
+
 
 }
