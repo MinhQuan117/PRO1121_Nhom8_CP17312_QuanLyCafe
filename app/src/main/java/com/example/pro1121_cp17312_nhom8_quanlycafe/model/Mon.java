@@ -3,7 +3,16 @@ package com.example.pro1121_cp17312_nhom8_quanlycafe.model;
 public class Mon {
     int MaMon, MaLoai;
     String TenMon,GiaTien,TinhTrang;
-    byte[] HinhAnh;
+    int HinhAnh;
+
+    public Mon(int maMon, int maLoai, String tenMon, String giaTien, String tinhTrang, int hinhAnh) {
+        MaMon = maMon;
+        MaLoai = maLoai;
+        TenMon = tenMon;
+        GiaTien = giaTien;
+        TinhTrang = tinhTrang;
+        HinhAnh = hinhAnh;
+    }
 
     public int getMaMon() {
         return MaMon;
@@ -43,11 +52,11 @@ public class Mon {
         TinhTrang = tinhTrang;
     }
 
-    public byte[] getHinhAnh() {
+    public int getHinhAnh() {
         return HinhAnh;
     }
 
-    public void setHinhAnh(byte[] hinhAnh) {
+    public void setHinhAnh(int hinhAnh) {
         HinhAnh = hinhAnh;
     }
 }
