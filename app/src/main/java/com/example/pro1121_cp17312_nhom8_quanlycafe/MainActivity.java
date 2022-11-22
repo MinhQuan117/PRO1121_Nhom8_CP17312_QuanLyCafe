@@ -6,12 +6,15 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.FragmentBan;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.FragmentHoaDon;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.FragmentLoaiDoUong;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.FragmentThongKe;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.FragmentThucDon;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.FragmentTrangChu;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.model.LoaiMon;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -59,4 +62,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public void gotoFragmentLoaiDoUong(LoaiMon loaiMon){
+        FragmentTransaction fragmentTransaction  = getSupportFragmentManager().beginTransaction();
+        FragmentLoaiDoUong fragmentLoaiDoUong = new FragmentLoaiDoUong();
+        fragmentTransaction.replace(R.id.container_fragment,fragmentLoaiDoUong);
+        fragmentTransaction.addToBackStack(FragmentLoaiDoUong.TAG);
+        fragmentTransaction.commit();
+    }
+
+
 }
