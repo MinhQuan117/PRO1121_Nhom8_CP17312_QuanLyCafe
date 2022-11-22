@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:text="Thêm nhân viên"
                 android:textColor="@color/black"
-
+                android:fontFamily="@font/muli_black"
                 android:textSize="30sp"
                 android:paddingLeft="15dp"
                 android:layout_centerVertical="true"
