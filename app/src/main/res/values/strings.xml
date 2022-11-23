@@ -1,22 +1,18 @@
 <resources>
-    <string name="app_name">PRO1121_CP17312_Nhom8_QuanLyCafe</string>
-    <string name="enter_username">Tên tài khoản</string>
-    <string name="enter_password">Mật khẩu</string>
-    <string name="login">Đăng nhập</string>
-
+    <string name="app_name">OrderDrinkApp</string>
     <string name="brand_name">:re Coffee Shop </string>
     <string name="slogan">Thơm ngon đến từng giọt cuối cùng</string>
-
+    <string name="login">Đăng nhập</string>
     <string name="logintittle">Đăng <br /> nhập</string>
     <string name="register">Đăng ký</string>
     <string name="function">Quản lý</string>
     <string name="howwork">Hướng dẫn sử dụng</string>
     <string name="create_acc">Tạo <br /> tài khoản</string>
     <string name="enter_fullname">Họ và tên</string>
-
+    <string name="enter_username">Tên tài khoản</string>
     <string name="enter_email">Email</string>
     <string name="enter_phone">Số điện thoại</string>
-
+    <string name="enter_password">Mật khẩu</string>
     <string name="btn_next">Tiếp theo</string>
     <string name="btn_complete">Hoàn thành</string>
     <string name="add_sucessful">Thêm thành công!</string>

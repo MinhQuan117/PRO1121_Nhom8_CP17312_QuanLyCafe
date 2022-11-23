@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.PRO1121_CP17312_Nhom8_QuanLyCafe" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.OrderDrinkApp" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -12,5 +13,16 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+
+    <!-- Menu style -->
+    <style name="navigationTheme">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+    </style>
+
+    <!-- Popup style -->
+    <style name="PopUpActivity" parent="Theme.MaterialComponents.Light.Dialog">
     </style>
 </resources>
