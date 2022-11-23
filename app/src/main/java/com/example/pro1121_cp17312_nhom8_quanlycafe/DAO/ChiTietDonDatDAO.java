@@ -5,20 +5,20 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.sinhvien.orderdrinkapp.DTO.ChiTietDonDatDTO;
-import com.sinhvien.orderdrinkapp.Database.CreateDatabase;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.ChiTietDonDatDTO;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.Database.DbHelper;
 
 public class ChiTietDonDatDAO {
 
     SQLiteDatabase database;
     public ChiTietDonDatDAO(Context context){
-        CreateDatabase createDatabase = new CreateDatabase(context);
+        DbHelper createDatabase = new DbHelper(context);
         database = createDatabase.open();
     }
 
     public boolean KiemTraMonTonTai(int madondat, int mamon){
-        String query = "SELECT * FROM " +CreateDatabase.TBL_CHITIETDONDAT+ " WHERE " +CreateDatabase.TBL_CHITIETDONDAT_MAMON+
-                " = " +mamon+ " AND " +CreateDatabase.TBL_CHITIETDONDAT_MADONDAT+ " = "+madondat;
+        String query = "SELECT * FROM " +DbHelper.TBL_CHITIETDONDAT+ " WHERE " +DbHelper.MAMON+
+                " = " +mamon+ " AND " +DbHelper.MADONDAT+ " = "+madondat;
         Cursor cursor = database.rawQuery(query,null);
         if(cursor.getCount() != 0){
             return true;
@@ -29,12 +29,12 @@ public class ChiTietDonDatDAO {
 
     public int LaySLMonTheoMaDon(int madondat, int mamon){
         int soluong = 0;
-        String query = "SELECT * FROM " +CreateDatabase.TBL_CHITIETDONDAT+ " WHERE " +CreateDatabase.TBL_CHITIETDONDAT_MAMON+
-                " = " +mamon+ " AND " +CreateDatabase.TBL_CHITIETDONDAT_MADONDAT+ " = "+madondat;
+        String query = "SELECT * FROM " +DbHelper.TBL_CHITIETDONDAT+ " WHERE " +DbHelper.MAMON+
+                " = " +mamon+ " AND " +DbHelper.MADONDAT+ " = "+madondat;
         Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
-            soluong = cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_CHITIETDONDAT_SOLUONG));
+            soluong = cursor.getInt(cursor.getColumnIndex(DbHelper.SOLUONG));
             cursor.moveToNext();
         }
         return soluong;
@@ -42,10 +42,10 @@ public class ChiTietDonDatDAO {
 
     public boolean CapNhatSL(ChiTietDonDatDTO chiTietDonDatDTO){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(CreateDatabase.TBL_CHITIETDONDAT_SOLUONG, chiTietDonDatDTO.getSoLuong());
+        contentValues.put(DbHelper.SOLUONG, chiTietDonDatDTO.getSoLuong());
 
-        long ktra = database.update(CreateDatabase.TBL_CHITIETDONDAT,contentValues,CreateDatabase.TBL_CHITIETDONDAT_MADONDAT+ " = "
-                +chiTietDonDatDTO.getMaDonDat()+ " AND " +CreateDatabase.TBL_CHITIETDONDAT_MAMON+ " = "
+        long ktra = database.update(DbHelper.TBL_CHITIETDONDAT,contentValues,DbHelper.MADONDAT+ " = "
+                +chiTietDonDatDTO.getMaDonDat()+ " AND " +DbHelper.MAMON+ " = "
                 +chiTietDonDatDTO.getMaMon(),null);
         if(ktra !=0){
             return true;
@@ -56,11 +56,11 @@ public class ChiTietDonDatDAO {
 
     public boolean ThemChiTietDonDat(ChiTietDonDatDTO chiTietDonDatDTO){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(CreateDatabase.TBL_CHITIETDONDAT_SOLUONG,chiTietDonDatDTO.getSoLuong());
-        contentValues.put(CreateDatabase.TBL_CHITIETDONDAT_MADONDAT,chiTietDonDatDTO.getMaDonDat());
-        contentValues.put(CreateDatabase.TBL_CHITIETDONDAT_MAMON,chiTietDonDatDTO.getMaMon());
+        contentValues.put(DbHelper.SOLUONG,chiTietDonDatDTO.getSoLuong());
+        contentValues.put(DbHelper.MADONDAT,chiTietDonDatDTO.getMaDonDat());
+        contentValues.put(DbHelper.MAMON,chiTietDonDatDTO.getMaMon());
 
-        long ktra = database.insert(CreateDatabase.TBL_CHITIETDONDAT,null,contentValues);
+        long ktra = database.insert(DbHelper.TBL_CHITIETDONDAT,null,contentValues);
         if(ktra !=0){
             return true;
         }else {
