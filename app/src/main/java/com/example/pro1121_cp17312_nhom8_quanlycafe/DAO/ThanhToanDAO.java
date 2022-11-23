@@ -4,8 +4,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.sinhvien.orderdrinkapp.DTO.ThanhToanDTO;
-import com.sinhvien.orderdrinkapp.Database.CreateDatabase;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.ThanhToanDTO;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.Database.DbHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,24 +14,24 @@ public class ThanhToanDAO {
 
     SQLiteDatabase database;
     public ThanhToanDAO(Context context){
-        CreateDatabase createDatabase = new CreateDatabase(context);
+        DbHelper createDatabase = new DbHelper(context);
         database = createDatabase.open();
     }
 
     public List<ThanhToanDTO> LayDSMonTheoMaDon(int madondat){
         List<ThanhToanDTO> thanhToanDTOS = new ArrayList<ThanhToanDTO>();
-        String query = "SELECT * FROM "+CreateDatabase.TBL_CHITIETDONDAT+" ctdd,"+CreateDatabase.TBL_MON+" mon WHERE "
-                +"ctdd."+CreateDatabase.TBL_CHITIETDONDAT_MAMON+" = mon."+CreateDatabase.TBL_MON_MAMON+" AND "
-                +CreateDatabase.TBL_CHITIETDONDAT_MADONDAT+" = '"+madondat+"'";
+        String query = "SELECT * FROM "+DbHelper.TBL_CHITIETDONDAT+" ctdd,"+DbHelper.TBL_MON+" mon WHERE "
+                +"ctdd."+DbHelper.MAMON+" = mon."+DbHelper.MAMON+" AND "
+                +DbHelper.MADONDAT+" = '"+madondat+"'";
 
         Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             ThanhToanDTO thanhToanDTO = new ThanhToanDTO();
-            thanhToanDTO.setSoLuong(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_CHITIETDONDAT_SOLUONG)));
-            thanhToanDTO.setGiaTien(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_MON_GIATIEN)));
-            thanhToanDTO.setTenMon(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_MON_TENMON)));
-            thanhToanDTO.setHinhAnh(cursor.getBlob(cursor.getColumnIndex(CreateDatabase.TBL_MON_HINHANH)));
+            thanhToanDTO.setSoLuong(cursor.getInt(cursor.getColumnIndex(DbHelper.SOLUONG)));
+            thanhToanDTO.setGiaTien(cursor.getInt(cursor.getColumnIndex(DbHelper.GIATIEN)));
+            thanhToanDTO.setTenMon(cursor.getString(cursor.getColumnIndex(DbHelper.TENMON)));
+            thanhToanDTO.setHinhAnh(cursor.getBlob(cursor.getColumnIndex(DbHelper.HINHANH)));
             thanhToanDTOS.add(thanhToanDTO);
 
             cursor.moveToNext();

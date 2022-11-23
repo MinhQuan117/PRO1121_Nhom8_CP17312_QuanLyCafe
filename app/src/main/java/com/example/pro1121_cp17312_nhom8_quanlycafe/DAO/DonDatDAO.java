@@ -5,8 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.sinhvien.orderdrinkapp.DTO.DonDatDTO;
-import com.sinhvien.orderdrinkapp.Database.CreateDatabase;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.DonDatDTO;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.Database.DbHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,36 +15,36 @@ public class DonDatDAO {
 
     SQLiteDatabase database;
     public DonDatDAO(Context context){
-        CreateDatabase createDatabase = new CreateDatabase(context);
+        DbHelper createDatabase = new DbHelper(context);
         database = createDatabase.open();
     }
 
     public long ThemDonDat(DonDatDTO donDatDTO){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(CreateDatabase.TBL_DONDAT_MABAN,donDatDTO.getMaBan());
-        contentValues.put(CreateDatabase.TBL_DONDAT_MANV,donDatDTO.getMaNV());
-        contentValues.put(CreateDatabase.TBL_DONDAT_NGAYDAT,donDatDTO.getNgayDat());
-        contentValues.put(CreateDatabase.TBL_DONDAT_TINHTRANG,donDatDTO.getTinhTrang());
-        contentValues.put(CreateDatabase.TBL_DONDAT_TONGTIEN,donDatDTO.getTongTien());
+        contentValues.put(DbHelper.MABAN,donDatDTO.getMaBan());
+        contentValues.put(DbHelper.MANV,donDatDTO.getMaNV());
+        contentValues.put(DbHelper.NGAYDAT,donDatDTO.getNgayDat());
+        contentValues.put(DbHelper.TINHTRANG,donDatDTO.getTinhTrang());
+        contentValues.put(DbHelper.TONGTIEN,donDatDTO.getTongTien());
 
-        long madondat = database.insert(CreateDatabase.TBL_DONDAT,null,contentValues);
+        long madondat = database.insert(DbHelper.TBL_DONDAT,null,contentValues);
 
         return madondat;
     }
 
     public List<DonDatDTO> LayDSDonDat(){
         List<DonDatDTO> donDatDTOS = new ArrayList<DonDatDTO>();
-        String query = "SELECT * FROM "+CreateDatabase.TBL_DONDAT;
+        String query = "SELECT * FROM "+DbHelper.TBL_DONDAT;
         Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             DonDatDTO donDatDTO = new DonDatDTO();
-            donDatDTO.setMaDonDat(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_DONDAT_MADONDAT)));
-            donDatDTO.setMaBan(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_DONDAT_MABAN)));
-            donDatDTO.setTongTien(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_DONDAT_TONGTIEN)));
-            donDatDTO.setTinhTrang(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_DONDAT_TINHTRANG)));
-            donDatDTO.setNgayDat(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_DONDAT_NGAYDAT)));
-            donDatDTO.setMaNV(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_DONDAT_MANV)));
+            donDatDTO.setMaDonDat(cursor.getInt(cursor.getColumnIndex(DbHelper.MADONDAT)));
+            donDatDTO.setMaBan(cursor.getInt(cursor.getColumnIndex(DbHelper.MABAN)));
+            donDatDTO.setTongTien(cursor.getString(cursor.getColumnIndex(DbHelper.TONGTIEN)));
+            donDatDTO.setTinhTrang(cursor.getString(cursor.getColumnIndex(DbHelper.TINHTRANG)));
+            donDatDTO.setNgayDat(cursor.getString(cursor.getColumnIndex(DbHelper.NGAYDAT)));
+            donDatDTO.setMaNV(cursor.getInt(cursor.getColumnIndex(DbHelper.MANV)));
             donDatDTOS.add(donDatDTO);
 
             cursor.moveToNext();
@@ -54,17 +54,17 @@ public class DonDatDAO {
 
     public List<DonDatDTO> LayDSDonDatNgay(String ngaythang){
         List<DonDatDTO> donDatDTOS = new ArrayList<DonDatDTO>();
-        String query = "SELECT * FROM "+CreateDatabase.TBL_DONDAT+" WHERE "+CreateDatabase.TBL_DONDAT_NGAYDAT+" like '"+ngaythang+"'";
+        String query = "SELECT * FROM "+DbHelper.TBL_DONDAT+" WHERE "+DbHelper.NGAYDAT+" like '"+ngaythang+"'";
         Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             DonDatDTO donDatDTO = new DonDatDTO();
-            donDatDTO.setMaDonDat(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_DONDAT_MADONDAT)));
-            donDatDTO.setMaBan(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_DONDAT_MABAN)));
-            donDatDTO.setTongTien(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_DONDAT_TONGTIEN)));
-            donDatDTO.setTinhTrang(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_DONDAT_TINHTRANG)));
-            donDatDTO.setNgayDat(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_DONDAT_NGAYDAT)));
-            donDatDTO.setMaNV(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_DONDAT_MANV)));
+            donDatDTO.setMaDonDat(cursor.getInt(cursor.getColumnIndex(DbHelper.MADONDAT)));
+            donDatDTO.setMaBan(cursor.getInt(cursor.getColumnIndex(DbHelper.MABAN)));
+            donDatDTO.setTongTien(cursor.getString(cursor.getColumnIndex(DbHelper.TONGTIEN)));
+            donDatDTO.setTinhTrang(cursor.getString(cursor.getColumnIndex(DbHelper.TINHTRANG)));
+            donDatDTO.setNgayDat(cursor.getString(cursor.getColumnIndex(DbHelper.NGAYDAT)));
+            donDatDTO.setMaNV(cursor.getInt(cursor.getColumnIndex(DbHelper.MANV)));
             donDatDTOS.add(donDatDTO);
 
             cursor.moveToNext();
@@ -73,13 +73,13 @@ public class DonDatDAO {
     }
 
     public long LayMaDonTheoMaBan(int maban, String tinhtrang){
-        String query = "SELECT * FROM " +CreateDatabase.TBL_DONDAT+ " WHERE " +CreateDatabase.TBL_DONDAT_MABAN+ " = '" +maban+ "' AND "
-                +CreateDatabase.TBL_DONDAT_TINHTRANG+ " = '" +tinhtrang+ "' ";
+        String query = "SELECT * FROM " +DbHelper.TBL_DONDAT+ " WHERE " +DbHelper.MABAN+ " = '" +maban+ "' AND "
+                +DbHelper.TINHTRANG+ " = '" +tinhtrang+ "' ";
         long magoimon = 0;
         Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
-            magoimon = cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_DONDAT_MADONDAT));
+            magoimon = cursor.getInt(cursor.getColumnIndex(DbHelper.MADONDAT));
 
             cursor.moveToNext();
         }
@@ -88,9 +88,9 @@ public class DonDatDAO {
 
     public boolean UpdateTongTienDonDat(int madondat,String tongtien){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(CreateDatabase.TBL_DONDAT_TONGTIEN,tongtien);
-        long ktra  = database.update(CreateDatabase.TBL_DONDAT,contentValues,
-                CreateDatabase.TBL_DONDAT_MADONDAT+" = "+madondat,null);
+        contentValues.put(DbHelper.TONGTIEN,tongtien);
+        long ktra  = database.update(DbHelper.TBL_DONDAT,contentValues,
+                DbHelper.MADONDAT+" = "+madondat,null);
         if(ktra != 0){
             return true;
         }else{
@@ -100,8 +100,8 @@ public class DonDatDAO {
 
     public boolean UpdateTThaiDonTheoMaBan(int maban,String tinhtrang){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(CreateDatabase.TBL_DONDAT_TINHTRANG,tinhtrang);
-        long ktra = database.update(CreateDatabase.TBL_DONDAT,contentValues,CreateDatabase.TBL_DONDAT_MABAN+
+        contentValues.put(DbHelper.TINHTRANG,tinhtrang);
+        long ktra = database.update(DbHelper.TBL_DONDAT,contentValues,DbHelper.MABAN+
                 " = '"+maban+"'",null);
         if(ktra !=0){
             return true;
