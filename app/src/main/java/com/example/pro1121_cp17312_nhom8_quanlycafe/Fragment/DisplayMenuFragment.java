@@ -28,6 +28,7 @@ import com.example.pro1121_cp17312_nhom8_quanlycafe.Activities.AmountMenuActivit
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Adapter.AdapterDisplayMenu;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DAO.MonDAO;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.MonDTO;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.MainActivity;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.R;
 
 import java.util.List;
@@ -75,7 +76,7 @@ public class DisplayMenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.displaymenu_layout,container,false);
-        ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Quản lý thực đơn");
+        ((MainActivity)getActivity()).getSupportActionBar().setTitle("Quản lý thực đơn");
         monDAO = new MonDAO(getActivity());
 
         gvDisplayMenu = (GridView)view.findViewById(R.id.gvDisplayMenu);

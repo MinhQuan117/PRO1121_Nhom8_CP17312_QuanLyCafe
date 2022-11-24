@@ -64,11 +64,12 @@
 
         <ImageView
             android:id="@+id/img_addcategory_ThemHinh"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_width="185dp"
+            android:layout_height="165dp"
+            android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:scaleType="fitXY"
-            android:src="@drawable/drinkfood" />
+            android:src="@drawable/addattachicon" />
 
         <Button
             android:id="@+id/btn_addcategory_TaoLoai"

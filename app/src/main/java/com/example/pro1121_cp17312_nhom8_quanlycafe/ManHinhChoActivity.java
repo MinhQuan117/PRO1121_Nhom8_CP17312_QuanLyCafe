@@ -14,9 +14,9 @@ public class ManHinhChoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_man_hinh_cho);
+        setContentView(R.layout.splash_layout);
 
-        ImageView ivLogo = findViewById(R.id.ivLogo);
+        ImageView ivLogo = findViewById(R.id.imgLogo);
 
         Glide.with(this).load(R.drawable.loadingicon).into(ivLogo);
 

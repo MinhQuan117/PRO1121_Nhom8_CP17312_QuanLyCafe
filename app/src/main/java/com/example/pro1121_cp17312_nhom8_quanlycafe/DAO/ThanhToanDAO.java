@@ -4,8 +4,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.sinhvien.orderdrinkapp.DTO.ThanhToanDTO;
-import com.sinhvien.orderdrinkapp.Database.CreateDatabase;
+
+import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.ThanhToanDTO;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.Database.CreateDatabase;
 
 import java.util.ArrayList;
 import java.util.List;

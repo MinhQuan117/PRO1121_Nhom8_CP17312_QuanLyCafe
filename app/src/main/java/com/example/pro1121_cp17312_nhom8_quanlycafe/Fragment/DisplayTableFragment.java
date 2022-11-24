@@ -22,10 +22,10 @@ import androidx.fragment.app.Fragment;
 
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Activities.AddTableActivity;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Activities.EditTableActivity;
-import com.example.pro1121_cp17312_nhom8_quanlycafe.Activities.HomeActivity;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Adapter.AdapterDisplayTable;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DAO.BanAnDAO;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.BanAnDTO;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.MainActivity;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.R;
 
 import java.util.List;
@@ -76,7 +76,7 @@ public class DisplayTableFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.displaytable_layout,container,false);
         setHasOptionsMenu(true);
-        ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Quản lý bàn");
+        ((MainActivity)getActivity()).getSupportActionBar().setTitle("Quản lý bàn");
 
         GVDisplayTable = (GridView)view.findViewById(R.id.gvDisplayTable);
         banAnDAO = new BanAnDAO(getActivity());

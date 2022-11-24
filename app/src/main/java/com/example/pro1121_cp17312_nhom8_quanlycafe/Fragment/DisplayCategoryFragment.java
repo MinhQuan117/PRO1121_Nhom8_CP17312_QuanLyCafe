@@ -27,6 +27,7 @@ import com.example.pro1121_cp17312_nhom8_quanlycafe.Activities.AddCategoryActivi
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Adapter.AdapterDisplayCategory;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DAO.LoaiMonDAO;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.LoaiMonDTO;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.MainActivity;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.R;
 
 import java.util.List;
@@ -75,7 +76,7 @@ public class DisplayCategoryFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.displaycategory_layout,container,false);
         setHasOptionsMenu(true);
-        ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Quản lý thực đơn");
+        ((MainActivity)getActivity()).getSupportActionBar().setTitle("Quản lý thực đơn");
 
         gvCategory = (GridView)view.findViewById(R.id.gvCategory);
 

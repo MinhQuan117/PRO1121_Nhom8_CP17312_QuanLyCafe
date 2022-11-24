@@ -13,6 +13,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PRO1121_CP17312_Nhom8_QuanLyCafe"
         tools:targetApi="31">
+        <activity android:name=".Activities.DetailStatisticActivity"></activity>
+        <activity android:name=".Activities.AddStaffActivity" />
+        <activity
+            android:name=".Activities.EditTableActivity"
+            android:label="Sửa bàn ăn"
+            android:theme="@style/PopUpActivity" />
+        <activity android:name=".Activities.PaymentActivity" />
+        <activity
+            android:name=".Activities.AmountMenuActivity"
+            android:label="số lượng món"
+            android:theme="@style/PopUpActivity" />
+        <activity android:name=".Activities.AddCategoryActivity" />
+        <activity android:name=".Activities.AddMenuActivity" />
+        <activity
+            android:name=".Activities.AddTableActivity"
+            android:label="@string/addTable"
+            android:theme="@style/PopUpActivity" />
+
+
 
         <activity
             android:name=".DangNhapActivity"
@@ -29,6 +48,9 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+    <meta-data
+        android:name="preloaded_fonts"
+        android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
