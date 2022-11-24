@@ -5,8 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.sinhvien.orderdrinkapp.DTO.ChiTietDonDatDTO;
-import com.sinhvien.orderdrinkapp.Database.CreateDatabase;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.ChiTietDonDatDTO;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.Database.CreateDatabase;
+
 
 public class ChiTietDonDatDAO {
 

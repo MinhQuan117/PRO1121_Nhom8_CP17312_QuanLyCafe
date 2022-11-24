@@ -34,7 +34,7 @@ public class DisplayStatisticFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.displaystatistic_layout,container,false);
-        ((MainActivity)getActivity()).getSupportActionBar().setTitle("Quản lý thống kê");
+        ((MainActivity)getActivity()).getSupportActionBar().setTitle("Đơn Trong Ngày");
         setHasOptionsMenu(true);
 
         lvStatistic = (ListView)view.findViewById(R.id.lvStatistic);

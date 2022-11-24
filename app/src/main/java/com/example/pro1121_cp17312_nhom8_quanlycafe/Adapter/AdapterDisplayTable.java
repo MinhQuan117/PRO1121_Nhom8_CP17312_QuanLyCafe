@@ -134,7 +134,7 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
                 break;
 
             case R.id.img_customtable_GoiMon:
-                Intent getIHome = ((HomeActivity)context).getIntent();
+                Intent getIHome = ((MainActivity)context).getIntent();
                 int manv = getIHome.getIntExtra("manv",0);
                 String tinhtrang = banAnDAO.LayTinhTrangBanTheoMa(maban);
 
