@@ -62,7 +62,7 @@
             android:id="@+id/txt_customstatistic_TenNV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lê Gia Huy"
+            android:text="Đỗ Quốc Thái"
             android:textSize="22sp"
             android:textColor="@color/black"
             android:fontFamily="@font/muli_black"

@@ -115,185 +115,185 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        int id = v.getId();
-        String chucnang;
-        switch (id){
-            case R.id.btn_addstaff_ThemNV:
-                if( !validateAge() | !validateEmail() | !validateFullName() | !validateGender() | !validatePassWord() |
-                !validatePermission() | !validatePhone() | !validateUserName()){
-                    return;
-                }
-                //Lấy dữ liệu từ view
-                hoTen = TXTL_addstaff_HoVaTen.getEditText().getText().toString();
-                tenDN = TXTL_addstaff_TenDN.getEditText().getText().toString();
-                eMail = TXTL_addstaff_Email.getEditText().getText().toString();
-                sDT = TXTL_addstaff_SDT.getEditText().getText().toString();
-                matKhau = TXTL_addstaff_MatKhau.getEditText().getText().toString();
-
-                switch (RG_addstaff_GioiTinh.getCheckedRadioButtonId()){
-                    case R.id.rd_addstaff_Nam: gioiTinh = "Nam"; break;
-                    case R.id.rd_addstaff_Nu: gioiTinh = "Nữ"; break;
-                    case R.id.rd_addstaff_Khac: gioiTinh = "Khác"; break;
-                }
-                switch (rg_addstaff_Quyen.getCheckedRadioButtonId()){
-                    case R.id.rd_addstaff_QuanLy: quyen = 1; break;
-                    case R.id.rd_addstaff_NhanVien: quyen = 2; break;
-                }
-
-                ngaySinh = DT_addstaff_NgaySinh.getDayOfMonth() + "/" + (DT_addstaff_NgaySinh.getMonth() + 1)
-                        +"/"+DT_addstaff_NgaySinh.getYear();
-
-                //truyền dữ liệu vào obj nhanvienDTO
-                NhanVienDTO nhanVienDTO = new NhanVienDTO();
-                nhanVienDTO.setHOTENNV(hoTen);
-                nhanVienDTO.setTENDN(tenDN);
-                nhanVienDTO.setEMAIL(eMail);
-                nhanVienDTO.setSDT(sDT);
-                nhanVienDTO.setMATKHAU(matKhau);
-                nhanVienDTO.setGIOITINH(gioiTinh);
-                nhanVienDTO.setNGAYSINH(ngaySinh);
-                nhanVienDTO.setMAQUYEN(quyen);
-
-                if(manv != 0){
-                    ktra = nhanVienDAO.SuaNhanVien(nhanVienDTO,manv);
-                    chucnang = "sua";
-                }else {
-                    ktra = nhanVienDAO.ThemNhanVien(nhanVienDTO);
-                    chucnang = "themnv";
-                }
-                //Thêm, sửa nv dựa theo obj nhanvienDTO
-                Intent intent = new Intent();
-                intent.putExtra("ketquaktra",ktra);
-                intent.putExtra("chucnang",chucnang);
-                setResult(RESULT_OK,intent);
-                finish();
-                break;
-
-            case R.id.img_addstaff_back:
-                finish();
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
-                break;
-        }
+//        int id = v.getId();
+//        String chucnang;
+//        switch (id){
+//            case R.id.btn_addstaff_ThemNV:
+//                if( !validateAge() | !validateEmail() | !validateFullName() | !validateGender() | !validatePassWord() |
+//                !validatePermission() | !validatePhone() | !validateUserName()){
+//                    return;
+//                }
+//                //Lấy dữ liệu từ view
+//                hoTen = TXTL_addstaff_HoVaTen.getEditText().getText().toString();
+//                tenDN = TXTL_addstaff_TenDN.getEditText().getText().toString();
+//                eMail = TXTL_addstaff_Email.getEditText().getText().toString();
+//                sDT = TXTL_addstaff_SDT.getEditText().getText().toString();
+//                matKhau = TXTL_addstaff_MatKhau.getEditText().getText().toString();
+//
+//                switch (RG_addstaff_GioiTinh.getCheckedRadioButtonId()){
+//                    case R.id.rd_addstaff_Nam: gioiTinh = "Nam"; break;
+//                    case R.id.rd_addstaff_Nu: gioiTinh = "Nữ"; break;
+//                    case R.id.rd_addstaff_Khac: gioiTinh = "Khác"; break;
+//                }
+//                switch (rg_addstaff_Quyen.getCheckedRadioButtonId()){
+//                    case R.id.rd_addstaff_QuanLy: quyen = 1; break;
+//                    case R.id.rd_addstaff_NhanVien: quyen = 2; break;
+//                }
+//
+//                ngaySinh = DT_addstaff_NgaySinh.getDayOfMonth() + "/" + (DT_addstaff_NgaySinh.getMonth() + 1)
+//                        +"/"+DT_addstaff_NgaySinh.getYear();
+//
+//                //truyền dữ liệu vào obj nhanvienDTO
+//                NhanVienDTO nhanVienDTO = new NhanVienDTO();
+//                nhanVienDTO.setHOTENNV(hoTen);
+//                nhanVienDTO.setTENDN(tenDN);
+//                nhanVienDTO.setEMAIL(eMail);
+//                nhanVienDTO.setSDT(sDT);
+//                nhanVienDTO.setMATKHAU(matKhau);
+//                nhanVienDTO.setGIOITINH(gioiTinh);
+//                nhanVienDTO.setNGAYSINH(ngaySinh);
+//                nhanVienDTO.setMAQUYEN(quyen);
+//
+//                if(manv != 0){
+//                    ktra = nhanVienDAO.SuaNhanVien(nhanVienDTO,manv);
+//                    chucnang = "sua";
+//                }else {
+//                    ktra = nhanVienDAO.ThemNhanVien(nhanVienDTO);
+//                    chucnang = "themnv";
+//                }
+//                //Thêm, sửa nv dựa theo obj nhanvienDTO
+//                Intent intent = new Intent();
+//                intent.putExtra("ketquaktra",ktra);
+//                intent.putExtra("chucnang",chucnang);
+//                setResult(RESULT_OK,intent);
+//                finish();
+//                break;
+//
+//            case R.id.img_addstaff_back:
+//                finish();
+//                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+//                break;
+//        }
     }
 
     //region validate fields
-    private boolean validateFullName(){
-        String val = TXTL_addstaff_HoVaTen.getEditText().getText().toString().trim();
-
-        if(val.isEmpty()){
-            TXTL_addstaff_HoVaTen.setError(getResources().getString(R.string.not_empty));
-            return false;
-        }else {
-            TXTL_addstaff_HoVaTen.setError(null);
-            TXTL_addstaff_HoVaTen.setErrorEnabled(false);
-            return true;
-        }
-    }
-
-    private boolean validateUserName(){
-        String val = TXTL_addstaff_TenDN.getEditText().getText().toString().trim();
-        String checkspaces = "\\A\\w{1,50}\\z";
-
-        if(val.isEmpty()){
-            TXTL_addstaff_TenDN.setError(getResources().getString(R.string.not_empty));
-            return false;
-        }else if(val.length()>50){
-            TXTL_addstaff_TenDN.setError("Phải nhỏ hơn 50 ký tự");
-            return false;
-        }else if(!val.matches(checkspaces)){
-            TXTL_addstaff_TenDN.setError("Không được cách chữ!");
-            return false;
-        }
-        else {
-            TXTL_addstaff_TenDN.setError(null);
-            TXTL_addstaff_TenDN.setErrorEnabled(false);
-            return true;
-        }
-    }
-
-    private boolean validateEmail(){
-        String val = TXTL_addstaff_Email.getEditText().getText().toString().trim();
-        String checkspaces = "[a-zA-Z0-9._-]+@[a-z]+.+[a-z]+";
-
-        if(val.isEmpty()){
-            TXTL_addstaff_Email.setError(getResources().getString(R.string.not_empty));
-            return false;
-        }else if(!val.matches(checkspaces)){
-            TXTL_addstaff_Email.setError("Email không hợp lệ!");
-            return false;
-        }
-        else {
-            TXTL_addstaff_Email.setError(null);
-            TXTL_addstaff_Email.setErrorEnabled(false);
-            return true;
-        }
-    }
-
-    private boolean validatePhone(){
-        String val = TXTL_addstaff_SDT.getEditText().getText().toString().trim();
-
-
-        if(val.isEmpty()){
-            TXTL_addstaff_SDT.setError(getResources().getString(R.string.not_empty));
-            return false;
-        }else if(val.length() != 10){
-            TXTL_addstaff_SDT.setError("Số điện thoại không hợp lệ!");
-            return false;
-        }
-        else {
-            TXTL_addstaff_SDT.setError(null);
-            TXTL_addstaff_SDT.setErrorEnabled(false);
-            return true;
-        }
-    }
-
-    private boolean validatePassWord(){
-        String val = TXTL_addstaff_MatKhau.getEditText().getText().toString().trim();
-
-        if(val.isEmpty()){
-            TXTL_addstaff_MatKhau.setError(getResources().getString(R.string.not_empty));
-            return false;
-        }else if(!PASSWORD_PATTERN.matcher(val).matches()){
-            TXTL_addstaff_MatKhau.setError("Mật khẩu ít nhất 6 ký tự!");
-            return false;
-        }
-        else {
-            TXTL_addstaff_MatKhau.setError(null);
-            TXTL_addstaff_MatKhau.setErrorEnabled(false);
-            return true;
-        }
-    }
-
-    private boolean validateGender(){
-        if(RG_addstaff_GioiTinh.getCheckedRadioButtonId() == -1){
-            Toast.makeText(this,"Hãy chọn giới tính",Toast.LENGTH_SHORT).show();
-            return false;
-        }else {
-            return true;
-        }
-    }
-
-    private boolean validatePermission(){
-        if(rg_addstaff_Quyen.getCheckedRadioButtonId() == -1){
-            Toast.makeText(this,"Hãy chọn quyền",Toast.LENGTH_SHORT).show();
-            return false;
-        }else {
-            return true;
-        }
-    }
-
-    private boolean validateAge(){
-        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-        int userAge = DT_addstaff_NgaySinh.getYear();
-        int isAgeValid = currentYear - userAge;
-
-        if(isAgeValid < 10){
-            Toast.makeText(this,"Bạn không đủ tuổi đăng ký!",Toast.LENGTH_SHORT).show();
-            return false;
-        }else {
-            return true;
-        }
-    }
+//    private boolean validateFullName(){
+//        String val = TXTL_addstaff_HoVaTen.getEditText().getText().toString().trim();
+//
+//        if(val.isEmpty()){
+//            TXTL_addstaff_HoVaTen.setError(getResources().getString(R.string.not_empty));
+//            return false;
+//        }else {
+//            TXTL_addstaff_HoVaTen.setError(null);
+//            TXTL_addstaff_HoVaTen.setErrorEnabled(false);
+//            return true;
+//        }
+//    }
+//
+//    private boolean validateUserName(){
+//        String val = TXTL_addstaff_TenDN.getEditText().getText().toString().trim();
+//        String checkspaces = "\\A\\w{1,50}\\z";
+//
+//        if(val.isEmpty()){
+//            TXTL_addstaff_TenDN.setError(getResources().getString(R.string.not_empty));
+//            return false;
+//        }else if(val.length()>50){
+//            TXTL_addstaff_TenDN.setError("Phải nhỏ hơn 50 ký tự");
+//            return false;
+//        }else if(!val.matches(checkspaces)){
+//            TXTL_addstaff_TenDN.setError("Không được cách chữ!");
+//            return false;
+//        }
+//        else {
+//            TXTL_addstaff_TenDN.setError(null);
+//            TXTL_addstaff_TenDN.setErrorEnabled(false);
+//            return true;
+//        }
+//    }
+//
+//    private boolean validateEmail(){
+//        String val = TXTL_addstaff_Email.getEditText().getText().toString().trim();
+//        String checkspaces = "[a-zA-Z0-9._-]+@[a-z]+.+[a-z]+";
+//
+//        if(val.isEmpty()){
+//            TXTL_addstaff_Email.setError(getResources().getString(R.string.not_empty));
+//            return false;
+//        }else if(!val.matches(checkspaces)){
+//            TXTL_addstaff_Email.setError("Email không hợp lệ!");
+//            return false;
+//        }
+//        else {
+//            TXTL_addstaff_Email.setError(null);
+//            TXTL_addstaff_Email.setErrorEnabled(false);
+//            return true;
+//        }
+//    }
+//
+//    private boolean validatePhone(){
+//        String val = TXTL_addstaff_SDT.getEditText().getText().toString().trim();
+//
+//
+//        if(val.isEmpty()){
+//            TXTL_addstaff_SDT.setError(getResources().getString(R.string.not_empty));
+//            return false;
+//        }else if(val.length() != 10){
+//            TXTL_addstaff_SDT.setError("Số điện thoại không hợp lệ!");
+//            return false;
+//        }
+//        else {
+//            TXTL_addstaff_SDT.setError(null);
+//            TXTL_addstaff_SDT.setErrorEnabled(false);
+//            return true;
+//        }
+//    }
+//
+//    private boolean validatePassWord(){
+//        String val = TXTL_addstaff_MatKhau.getEditText().getText().toString().trim();
+//
+//        if(val.isEmpty()){
+//            TXTL_addstaff_MatKhau.setError(getResources().getString(R.string.not_empty));
+//            return false;
+//        }else if(!PASSWORD_PATTERN.matcher(val).matches()){
+//            TXTL_addstaff_MatKhau.setError("Mật khẩu ít nhất 6 ký tự!");
+//            return false;
+//        }
+//        else {
+//            TXTL_addstaff_MatKhau.setError(null);
+//            TXTL_addstaff_MatKhau.setErrorEnabled(false);
+//            return true;
+//        }
+//    }
+//
+//    private boolean validateGender(){
+//        if(RG_addstaff_GioiTinh.getCheckedRadioButtonId() == -1){
+//            Toast.makeText(this,"Hãy chọn giới tính",Toast.LENGTH_SHORT).show();
+//            return false;
+//        }else {
+//            return true;
+//        }
+//    }
+//
+//    private boolean validatePermission(){
+//        if(rg_addstaff_Quyen.getCheckedRadioButtonId() == -1){
+//            Toast.makeText(this,"Hãy chọn quyền",Toast.LENGTH_SHORT).show();
+//            return false;
+//        }else {
+//            return true;
+//        }
+//    }
+//
+//    private boolean validateAge(){
+//        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+//        int userAge = DT_addstaff_NgaySinh.getYear();
+//        int isAgeValid = currentYear - userAge;
+//
+//        if(isAgeValid < 10){
+//            Toast.makeText(this,"Bạn không đủ tuổi đăng ký!",Toast.LENGTH_SHORT).show();
+//            return false;
+//        }else {
+//            return true;
+//        }
+//    }
     //endregion
 
 }

@@ -92,9 +92,9 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
         String kttinhtrang = banAnDAO.LayTinhTrangBanTheoMa(banAnDTO.getMaBan());
         //đổi hình theo tình trạng
         if(kttinhtrang.equals("true")){
-            viewHolder.imgBanAn.setImageResource(R.drawable.ic_baseline_airline_seat_legroom_normal_40);
+            viewHolder.imgBanAn.setImageResource(R.drawable.table_seat);
         }else {
-            viewHolder.imgBanAn.setImageResource(R.drawable.ic_baseline_event_seat_40);
+            viewHolder.imgBanAn.setImageResource(R.drawable.table_coffee);
         }
 
         viewHolder.txtTenBanAn.setText(banAnDTO.getTenBan());
