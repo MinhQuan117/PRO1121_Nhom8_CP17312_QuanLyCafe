@@ -13,17 +13,6 @@
             android:src="@drawable/cafe_americano"
             android:scaleType="fitXY"
             />
-        <TextView
-            android:id="@+id/txt_custommenu_TenMon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:fontFamily="@font/muli_black"
-            android:background="@color/black50"
-            android:text="Caffè Americano Iced"
-            android:layout_gravity="bottom"
-            android:textSize="20sp"
-            android:padding="5dp"/>
 
         <TextView
             android:id="@+id/txt_custommenu_TinhTrang"
@@ -41,25 +30,45 @@
     </FrameLayout>
 
     <RelativeLayout
-        android:layout_width="200dp"
+        android:id="@+id/giatien"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/img_custommenu_HinhMon"
         android:background="@color/colorPrimary"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
         >
+
+        <TextView
+            android:id="@+id/txt_custommenu_TenMon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/muli_black"
+            android:gravity="center"
+            android:text="Caffè Americano Iced"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/giatien"
+        android:background="@color/colorPrimary"
+        >
+
         <TextView
             android:id="@+id/txt_custommenu_GiaTien"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="10000 VND"
-            android:fontFamily="@font/muli"
-            android:textStyle="bold"
-            android:padding="3dp"
             android:layout_centerInParent="true"
-            android:textSize="16sp"
+            android:fontFamily="@font/muli"
+            android:gravity="center"
+            android:text="10000 VND"
             android:textColor="@color/black"
-            />
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingRight="10dp"/>
 
     </RelativeLayout>
 

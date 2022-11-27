@@ -19,7 +19,7 @@ public class BanAnDAO {
         database = createDatabase.open();
     }
 
-    //Hàm thêm bàn ăn mới
+    //thêm bàn ăn mới
     public boolean ThemBanAn(String tenban){
         ContentValues contentValues = new ContentValues();
         contentValues.put(CreateDatabase.TBL_BAN_TENBAN,tenban);

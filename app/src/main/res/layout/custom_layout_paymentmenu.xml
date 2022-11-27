@@ -9,59 +9,79 @@
     android:layout_margin="10dp"
     android:background="#dcd2ca"
     >
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
+        android:layout_height="100dp"
         android:weightSum="6"
 
         >
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_custompayment_HinhMon"
-            android:layout_width="0dp"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_height="70dp"
-            android:src="@drawable/cafe_americano"
-            />
+            android:src="@drawable/cafe_americano" />
+
+        <LinearLayout
+            android:id="@+id/layout_tenmon"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_custompayment_TenMon"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_weight="3"
+                android:paddingLeft="7dp"
+                android:text="Cafe americano with ice"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:paddingTop="20dp"/>
+
+            <TextView
+                android:id="@+id/txt_custompayment_GhiChu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="3"
+                android:paddingLeft="7dp"
+                android:text="Ghi chú"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
 
         <TextView
-            android:id="@+id/txt_custompayment_TenMon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Cafe americano with ice"
-            android:layout_weight="3"
-            android:layout_gravity="center"
-            android:paddingLeft="7dp"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            />
-        <TextView
             android:id="@+id/txt_custompayment_SoLuong"
-            android:layout_width="0dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:layout_gravity="center"
-            android:text="15"
-            android:gravity="center"
             android:layout_centerVertical="true"
-            android:layout_toStartOf="@id/txt_custompayment_GiaTien"
-            android:layout_toLeftOf="@id/txt_custompayment_GiaTien"
-            android:textSize="16sp"
-            />
+            android:layout_gravity="center"
+            android:layout_toStartOf="@id/layout_tenmon"
+            android:layout_toLeftOf="@id/layout_tenmon"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="15"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/txt_custompayment_GiaTien"
-            android:layout_width="0dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.5"
             android:layout_gravity="center"
+            android:layout_weight="1.5"
+            android:fontFamily="@font/muli_black"
             android:gravity="right"
             android:paddingRight="5dp"
             android:text="10000đ"
             android:textColor="@color/black"
-            android:fontFamily="@font/muli_black"
-            android:textSize="18sp"
-            />
+            android:textSize="18sp" />
 
     </LinearLayout>
 
