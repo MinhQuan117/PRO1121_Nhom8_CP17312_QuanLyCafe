@@ -72,7 +72,7 @@ public class DetailStatisticActivity extends AppCompatActivity {
             txt_detailstatistic_TenNV.setText(nhanVienDTO.getHOTENNV());
             txt_detailstatistic_TenBan.setText(banAnDAO.LayTenBanTheoMa(maban));
 
-//            HienThiDSCTDD();
+            HienThiDSCTDD();
         }
 
         img_detailstatistic_backbtn.setOnClickListener(new View.OnClickListener() {
