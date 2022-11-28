@@ -82,7 +82,6 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:paddingVertical="5dp"
-        android:layout_margin="10dp"
         >
 
     </GridView>

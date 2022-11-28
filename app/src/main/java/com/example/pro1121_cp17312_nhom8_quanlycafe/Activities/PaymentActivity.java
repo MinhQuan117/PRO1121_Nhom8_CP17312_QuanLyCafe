@@ -20,8 +20,6 @@ import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.ThanhToanDTO;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.R;
 
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 public class PaymentActivity extends AppCompatActivity implements View.OnClickListener {
@@ -44,19 +42,23 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment_layout);
 
+        //region thuộc tính view
         gvDisplayPayment= (GridView)findViewById(R.id.gvDisplayPayment);
         IMG_payment_backbtn = (ImageView)findViewById(R.id.img_payment_backbtn);
         TXT_payment_TenBan = (TextView)findViewById(R.id.txt_payment_TenBan);
         TXT_payment_NgayDat = (TextView)findViewById(R.id.txt_payment_NgayDat);
         TXT_payment_TongTien = (TextView)findViewById(R.id.txt_payment_TongTien);
         BTN_payment_ThanhToan = (Button)findViewById(R.id.btn_payment_ThanhToan);
+        //endregion
 
+        //khởi tạo kết nối csdl
         donDatDAO = new DonDatDAO(this);
         thanhToanDAO = new ThanhToanDAO(this);
         banAnDAO = new BanAnDAO(this);
 
         fragmentManager = getSupportFragmentManager();
 
+        //lấy data từ mã bàn đc chọn
         Intent intent = getIntent();
         maban = intent.getIntExtra("maban",0);
         String tenban = intent.getStringExtra("tenban");
@@ -65,6 +67,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         TXT_payment_TenBan.setText(tenban);
         TXT_payment_NgayDat.setText(ngaydat);
 
+        //ktra mã bàn tồn tại thì hiển thị
         if(maban !=0 ){
             HienThiThanhToan();
 
@@ -104,6 +107,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    //hiển thị data lên gridview
     private void HienThiThanhToan(){
         madondat = (int) donDatDAO.LayMaDonTheoMaBan(maban,"false");
         thanhToanDTOS = thanhToanDAO.LayDSMonTheoMaDon(madondat);

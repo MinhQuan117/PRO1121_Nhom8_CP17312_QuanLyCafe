@@ -23,6 +23,7 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
+
             android:src="@drawable/logocoffee"
 
             />
@@ -31,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="80dp"
             >
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtl_login_TenDN"

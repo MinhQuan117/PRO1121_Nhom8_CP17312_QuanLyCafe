@@ -1,17 +1,9 @@
 package com.example.pro1121_cp17312_nhom8_quanlycafe.DTO;
 
 public class ThanhToanDTO {
-    String TenMon, GhiChu;
+    String TenMon;
     int SoLuong, GiaTien;
     byte[] HinhAnh;
-
-    public String getGhiChu() {
-        return GhiChu;
-    }
-
-    public void setGhiChu(String ghiChu) {
-        GhiChu = ghiChu;
-    }
 
     public String getTenMon() {
         return TenMon;

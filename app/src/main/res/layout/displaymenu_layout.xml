@@ -17,11 +17,13 @@
         />
 
     <GridView
-        android:layout_margin="10dp"
         android:id="@+id/gvDisplayMenu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:numColumns="2"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="15dp"
         android:verticalSpacing="5dp"
         android:horizontalSpacing="5dp"
 

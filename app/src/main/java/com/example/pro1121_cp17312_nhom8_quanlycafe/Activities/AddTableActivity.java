@@ -23,6 +23,7 @@ public class AddTableActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addtable_layout);
 
+        //region Lấy đối tượng trong view
         TXTL_addtable_tenban = (TextInputLayout)findViewById(R.id.txtl_addtable_tenban);
         BTN_addtable_TaoBan = (Button)findViewById(R.id.btn_addtable_TaoBan);
 
@@ -33,6 +34,7 @@ public class AddTableActivity extends AppCompatActivity {
                 String sTenBanAn = TXTL_addtable_tenban.getEditText().getText().toString();
                 if(sTenBanAn != null || sTenBanAn.equals("")){
                     boolean ktra = banAnDAO.ThemBanAn(sTenBanAn);
+                    //trả về result cho displaytable
                     Intent intent = new Intent();
                     intent.putExtra("ketquathem",ktra);
                     setResult(RESULT_OK,intent);
@@ -42,6 +44,7 @@ public class AddTableActivity extends AppCompatActivity {
         });
     }
 
+    //validate dữ liệu
     private boolean validateName(){
         String val = TXTL_addtable_tenban.getEditText().getText().toString().trim();
         if(val.isEmpty()){

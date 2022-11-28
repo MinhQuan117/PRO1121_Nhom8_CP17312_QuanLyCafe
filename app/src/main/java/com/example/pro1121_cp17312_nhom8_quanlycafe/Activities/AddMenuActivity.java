@@ -88,12 +88,13 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         Intent intent = getIntent();
         maloai = intent.getIntExtra("maLoai",-1);
         tenloai = intent.getStringExtra("tenLoai");
-        monDAO = new MonDAO(this);
+        monDAO = new MonDAO(this);  //khởi tạo đối tượng dao kết nối csdl
         TXTL_addmenu_LoaiMon.getEditText().setText(tenloai);
 
         BitmapDrawable olddrawable = (BitmapDrawable)IMG_addmenu_ThemHinh.getDrawable();
         bitmapold = olddrawable.getBitmap();
 
+        //region Hiển thị trang sửa nếu được chọn từ context menu sửa
         mamon = getIntent().getIntExtra("mamon",0);
         if(mamon != 0){
             TXT_addmenu_title.setText("Sửa thực đơn");
@@ -117,6 +118,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
             BTN_addmenu_ThemMon.setText("Sửa món");
         }
 
+        //endregion
 
         IMG_addmenu_ThemHinh.setOnClickListener(this);
         BTN_addmenu_ThemMon.setOnClickListener(this);
@@ -168,6 +170,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
                     chucnang = "themmon";
                 }
 
+                //Thêm, sửa món dựa theo obj loaimonDTO
                 Intent intent = new Intent();
                 intent.putExtra("ktra",ktra);
                 intent.putExtra("chucnang",chucnang);

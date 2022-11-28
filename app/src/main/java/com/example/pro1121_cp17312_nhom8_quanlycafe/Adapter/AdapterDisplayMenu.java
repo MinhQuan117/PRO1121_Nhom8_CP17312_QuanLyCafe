@@ -65,12 +65,14 @@ public class AdapterDisplayMenu extends BaseAdapter {
         viewholder.txt_custommenu_TenMon.setText(monDTO.getTenMon());
         viewholder.txt_custommenu_GiaTien.setText(monDTO.getGiaTien()+" VNĐ");
 
+        //hiển thị tình trạng của món
         if(monDTO.getTinhTrang().equals("true")){
             viewholder.txt_custommenu_TinhTrang.setText("Còn món");
         }else{
             viewholder.txt_custommenu_TinhTrang.setText("Hết món");
         }
 
+        //lấy hình ảnh
         if(monDTO.getHinhAnh() != null){
             byte[] menuimage = monDTO.getHinhAnh();
             Bitmap bitmap = BitmapFactory.decodeByteArray(menuimage,0,menuimage.length);
@@ -82,6 +84,7 @@ public class AdapterDisplayMenu extends BaseAdapter {
         return view;
     }
 
+    //tạo viewholer lưu trữ component
     public class Viewholder{
         ImageView img_custommenu_HinhMon;
         TextView txt_custommenu_TenMon, txt_custommenu_GiaTien,txt_custommenu_TinhTrang;

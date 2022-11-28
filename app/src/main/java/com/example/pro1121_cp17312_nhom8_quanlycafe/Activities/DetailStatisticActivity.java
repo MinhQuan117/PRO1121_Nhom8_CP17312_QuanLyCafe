@@ -39,6 +39,7 @@ public class DetailStatisticActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detailstatistic_layout);
 
+        //Lấy thông tin từ display statistic
         Intent intent = getIntent();
         madon = intent.getIntExtra("madon",0);
         manv = intent.getIntExtra("manv",0);
@@ -46,6 +47,7 @@ public class DetailStatisticActivity extends AppCompatActivity {
         ngaydat = intent.getStringExtra("ngaydat");
         tongtien = intent.getStringExtra("tongtien");
 
+        //region Thuộc tính bên view
         img_detailstatistic_backbtn = (ImageView)findViewById(R.id.img_detailstatistic_backbtn);
         txt_detailstatistic_MaDon = (TextView)findViewById(R.id.txt_detailstatistic_MaDon);
         txt_detailstatistic_NgayDat = (TextView)findViewById(R.id.txt_detailstatistic_NgayDat);
@@ -53,11 +55,14 @@ public class DetailStatisticActivity extends AppCompatActivity {
         txt_detailstatistic_TenNV = (TextView)findViewById(R.id.txt_detailstatistic_TenNV);
         txt_detailstatistic_TongTien = (TextView)findViewById(R.id.txt_detailstatistic_TongTien);
         gvDetailStatistic = (GridView)findViewById(R.id.gvDetailStatistic);
+        //endregion
 
+        //khởi tạo lớp dao mở kết nối csdl
         nhanVienDAO = new NhanVienDAO(this);
         banAnDAO = new BanAnDAO(this);
         thanhToanDAO = new ThanhToanDAO(this);
 
+        //chỉ hiển thị nếu lấy đc mã đơn đc chọn
         if (madon !=0){
             txt_detailstatistic_MaDon.setText("Mã đơn: "+madon);
             txt_detailstatistic_NgayDat.setText(ngaydat);
@@ -67,6 +72,7 @@ public class DetailStatisticActivity extends AppCompatActivity {
             txt_detailstatistic_TenNV.setText(nhanVienDTO.getHOTENNV());
             txt_detailstatistic_TenBan.setText(banAnDAO.LayTenBanTheoMa(maban));
 
+//            HienThiDSCTDD();
         }
 
         img_detailstatistic_backbtn.setOnClickListener(new View.OnClickListener() {
