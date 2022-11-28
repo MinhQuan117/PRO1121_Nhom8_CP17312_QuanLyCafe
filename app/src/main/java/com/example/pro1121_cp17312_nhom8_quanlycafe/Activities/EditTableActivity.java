@@ -22,13 +22,11 @@ public class EditTableActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edittable_layout);
 
-        //thuộc tính view
         TXTL_edittable_tenban = (TextInputLayout)findViewById(R.id.txtl_edittable_tenban);
         BTN_edittable_SuaBan = (Button)findViewById(R.id.btn_edittable_SuaBan);
 
-        //khởi tạo dao mở kết nối csdl
         banAnDAO = new BanAnDAO(this);
-        int maban = getIntent().getIntExtra("maban",0); //lấy maban từ bàn đc chọn
+        int maban = getIntent().getIntExtra("maban",0);
 
         BTN_edittable_SuaBan.setOnClickListener(new View.OnClickListener() {
             @Override

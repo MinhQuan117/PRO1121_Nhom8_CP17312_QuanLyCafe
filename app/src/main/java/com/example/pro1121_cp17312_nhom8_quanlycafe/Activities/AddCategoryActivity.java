@@ -37,9 +37,9 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
     TextInputLayout TXTL_addcategory_TenLoai;
     LoaiMonDAO loaiMonDAO;
     int maloai = 0;
-    Bitmap bitmapold;   //Bitmap dạng ảnh theo ma trận các pixel
+    Bitmap bitmapold;
 
-    //dùng result launcher do activityforresult ko dùng đc nữa
+
     ActivityResultLauncher<Intent> resultLauncherOpenIMG = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
@@ -62,26 +62,22 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addcategory_layout);
 
-        loaiMonDAO = new LoaiMonDAO(this);  //khởi tạo đối tượng dao kết nối csdl
+        loaiMonDAO = new LoaiMonDAO(this);
 
-        //region Lấy đối tượng view
         BTN_addcategory_TaoLoai = (Button)findViewById(R.id.btn_addcategory_TaoLoai);
         TXTL_addcategory_TenLoai = (TextInputLayout)findViewById(R.id.txtl_addcategory_TenLoai);
         IMG_addcategory_back = (ImageView)findViewById(R.id.img_addcategory_back);
         IMG_addcategory_ThemHinh = (ImageView)findViewById(R.id.img_addcategory_ThemHinh);
         TXT_addcategory_title = (TextView)findViewById(R.id.txt_addcategory_title);
-        //endregion
 
         BitmapDrawable olddrawable = (BitmapDrawable)IMG_addcategory_ThemHinh.getDrawable();
         bitmapold = olddrawable.getBitmap();
 
-        //region Hiển thị trang sửa nếu được chọn từ context menu sửa
         maloai = getIntent().getIntExtra("maloai",0);
         if(maloai != 0){
             TXT_addcategory_title.setText(getResources().getString(R.string.editcategory));
             LoaiMonDTO loaiMonDTO = loaiMonDAO.LayLoaiMonTheoMa(maloai);
 
-            //Hiển thị lại thông tin từ csdl
             TXTL_addcategory_TenLoai.getEditText().setText(loaiMonDTO.getTenLoai());
 
             byte[] categoryimage = loaiMonDTO.getHinhAnh();
@@ -90,7 +86,6 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
 
             BTN_addcategory_TaoLoai.setText("Sửa loại");
         }
-        //endregion
 
         IMG_addcategory_back.setOnClickListener(this);
         IMG_addcategory_ThemHinh.setOnClickListener(this);
@@ -105,14 +100,14 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
         switch (id){
             case R.id.img_addcategory_back:
                 finish();
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right); //animation
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
                 break;
 
             case R.id.img_addcategory_ThemHinh:
                 Intent iGetIMG = new Intent();
-                iGetIMG.setType("image/*"); //lấy những mục chứa hình ảnh
-                iGetIMG.setAction(Intent.ACTION_GET_CONTENT);   //lấy mục hiện tại đang chứa hình
-                resultLauncherOpenIMG.launch(Intent.createChooser(iGetIMG,getResources().getString(R.string.choseimg)));    //mở intent chọn hình ảnh
+                iGetIMG.setType("image/*");
+                iGetIMG.setAction(Intent.ACTION_GET_CONTENT);
+                resultLauncherOpenIMG.launch(Intent.createChooser(iGetIMG,getResources().getString(R.string.choseimg)));
                 break;
 
             case R.id.btn_addcategory_TaoLoai:
@@ -132,7 +127,6 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
                     chucnang = "themloai";
                 }
 
-                //Thêm, sửa loại dựa theo obj loaimonDTO
                 Intent intent = new Intent();
                 intent.putExtra("ktra",ktra);
                 intent.putExtra("chucnang",chucnang);
@@ -143,7 +137,6 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-    //Chuyển ảnh bitmap về mảng byte lưu vào csdl
     private byte[] imageViewtoByte(ImageView imageView){
         Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -152,7 +145,6 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
         return byteArray;
     }
 
-    //region validate fields
     private boolean validateImage(){
         BitmapDrawable drawable = (BitmapDrawable)IMG_addcategory_ThemHinh.getDrawable();
         Bitmap bitmap = drawable.getBitmap();
