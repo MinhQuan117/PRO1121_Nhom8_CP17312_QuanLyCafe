@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +25,7 @@ import com.example.pro1121_cp17312_nhom8_quanlycafe.R;
 import java.util.List;
 
 public class PaymentActivity extends AppCompatActivity implements View.OnClickListener {
+    CheckBox ChkisVIP;
 
     ImageView IMG_payment_backbtn;
     TextView TXT_payment_TenBan, TXT_payment_NgayDat, TXT_payment_TongTien;
@@ -49,6 +52,8 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         TXT_payment_NgayDat = (TextView)findViewById(R.id.txt_payment_NgayDat);
         TXT_payment_TongTien = (TextView)findViewById(R.id.txt_payment_TongTien);
         BTN_payment_ThanhToan = (Button)findViewById(R.id.btn_payment_ThanhToan);
+        ChkisVIP = (CheckBox) findViewById(R.id.ChkVip);
+
         //endregion
 
         //khởi tạo kết nối csdl
@@ -71,13 +76,29 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         if(maban !=0 ){
             HienThiThanhToan();
 
-            for (int i=0;i<thanhToanDTOS.size();i++){
+
+            for (int i=0;i<thanhToanDTOS.size();i++) {
                 int soluong = thanhToanDTOS.get(i).getSoLuong();
                 int giatien = thanhToanDTOS.get(i).getGiaTien();
+                tongtien = (soluong * giatien);
 
-                tongtien += (soluong * giatien);
+                ChkisVIP.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                        if (ChkisVIP.isChecked()) {
+                            tongtien = (long) (tongtien * 0.9);
+                            TXT_payment_TongTien.setText(String.valueOf(tongtien) +" VNĐ");
+                        } else {
+                            tongtien = (soluong*giatien);
+                            TXT_payment_TongTien.setText(String.valueOf(tongtien) +" VNĐ");
+                        }
+                    }
+
+                });
             }
             TXT_payment_TongTien.setText(String.valueOf(tongtien) +" VNĐ");
+
         }
 
         BTN_payment_ThanhToan.setOnClickListener(this);
