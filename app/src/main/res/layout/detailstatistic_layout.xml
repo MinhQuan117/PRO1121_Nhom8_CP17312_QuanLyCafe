@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:text="Chi Tiết Đơn đặt"
             android:textSize="24sp"
-            android:fontFamily="@font/muli_black"
+
             android:padding="10dp"
             android:textAllCaps="true"
             android:textColor="@color/black"
