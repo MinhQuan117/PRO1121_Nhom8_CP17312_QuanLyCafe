@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class CreateDatabase extends SQLiteOpenHelper {
 
     public static String TBL_NHANVIEN = "NHANVIEN";
+    public static String TBL_KHACHHANG = "KHACHHANG";
     public static String TBL_MON = "MON";
     public static String TBL_LOAIMON = "LOAIMON";
     public static String TBL_BAN = "BAN";
@@ -24,6 +25,13 @@ public class CreateDatabase extends SQLiteOpenHelper {
     public static String TBL_NHANVIEN_GIOITINH = "GIOITINH";
     public static String TBL_NHANVIEN_NGAYSINH = "NGAYSINH";
     public static String TBL_NHANVIEN_MAQUYEN= "MAQUYEN";
+
+    //bang khach hang
+    public static String TBL_KHACHHANG_MAKH = "MAKH";
+    public static String TBL_KHACHHANG_HOTENKH = "HOTENKH";
+    public static String TBL_KHACHHANG_EMAIL = "EMAIL";
+    public static String TBL_KHACHHANG_SDT = "SDT";
+    public static String TBL_KHACHHANG_GIOITINH = "GIOITINH";
 
     //Bảng quyền
     public static String TBL_QUYEN_MAQUYEN = "MAQUYEN";
@@ -73,6 +81,10 @@ public class CreateDatabase extends SQLiteOpenHelper {
                 +TBL_NHANVIEN_HOTENNV+ " TEXT, " +TBL_NHANVIEN_TENDN+ " TEXT, " +TBL_NHANVIEN_MATKHAU+ " TEXT, " +TBL_NHANVIEN_EMAIL+ " TEXT, "
                 +TBL_NHANVIEN_SDT+ " TEXT, " +TBL_NHANVIEN_GIOITINH+ " TEXT, " +TBL_NHANVIEN_NGAYSINH+ " TEXT , "+TBL_NHANVIEN_MAQUYEN+" INTEGER)";
 
+        String tblKHACHHANG = "CREATE TABLE " +TBL_KHACHHANG+ " ( " +TBL_KHACHHANG_MAKH+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                +TBL_KHACHHANG_HOTENKH+ " TEXT,  " +TBL_KHACHHANG_EMAIL+ " TEXT, "
+                +TBL_KHACHHANG_SDT+ " TEXT, " +TBL_KHACHHANG_GIOITINH+ " TEXT)";
+
         String tblQUYEN = "CREATE TABLE " +TBL_QUYEN+ " ( " +TBL_QUYEN_MAQUYEN+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 +TBL_QUYEN_TENQUYEN+ " TEXT)" ;
 
@@ -101,6 +113,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
         db.execSQL(tblLOAIMON);
         db.execSQL(tblDONDAT);
         db.execSQL(tblCHITIETDONDAT);
+        db.execSQL(tblKHACHHANG);
     }
 
     @Override
