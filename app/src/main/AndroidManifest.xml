@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PRO1121_CP17312_Nhom8_QuanLyCafe"
         tools:targetApi="31">
-        <activity android:name=".Activities.DetailStatisticActivity"></activity>
+        <activity android:name=".Activities.AddCustomer"/>
+
+        <activity android:name=".Activities.DetailStatisticActivity" />
         <activity android:name=".Activities.AddStaffActivity" />
         <activity
             android:name=".Activities.EditTableActivity"
@@ -30,9 +32,6 @@
             android:name=".Activities.AddTableActivity"
             android:label="@string/addTable"
             android:theme="@style/PopUpActivity" />
-
-
-
         <activity
             android:name=".DangNhapActivity"
             android:exported="false" />
@@ -48,9 +47,10 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-    <meta-data
-        android:name="preloaded_fonts"
-        android:resource="@array/preloaded_fonts" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
