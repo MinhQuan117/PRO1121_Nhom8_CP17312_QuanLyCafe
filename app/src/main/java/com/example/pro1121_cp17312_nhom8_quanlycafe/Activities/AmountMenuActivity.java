@@ -58,10 +58,13 @@ public class AmountMenuActivity extends AppCompatActivity {
                     int sluongmoi = Integer.parseInt(TXTL_amountmenu_SoLuong.getEditText().getText().toString());
                     int tongsl = sluongcu + sluongmoi;
 
+                    String ghichumoi = TXTL_amountmenu_GhiChu.getEditText().getText().toString();
+
                     ChiTietDonDatDTO chiTietDonDatDTO = new ChiTietDonDatDTO();
                     chiTietDonDatDTO.setMaMon(mamon);
                     chiTietDonDatDTO.setMaDonDat(madondat);
                     chiTietDonDatDTO.setSoLuong(tongsl);
+                    chiTietDonDatDTO.setGhichu((ghichumoi));
 
                     boolean ktracapnhat = chiTietDonDatDAO.CapNhatSL(chiTietDonDatDTO);
                     if(ktracapnhat){
@@ -72,12 +75,10 @@ public class AmountMenuActivity extends AppCompatActivity {
                 }else {
                     //thêm số lượng món nếu chưa chọn món này
                     int sluong = Integer.parseInt(TXTL_amountmenu_SoLuong.getEditText().getText().toString());
-                    String ghichu = TXTL_amountmenu_GhiChu.getEditText().getText().toString();
                     ChiTietDonDatDTO chiTietDonDatDTO = new ChiTietDonDatDTO();
                     chiTietDonDatDTO.setMaMon(mamon);
                     chiTietDonDatDTO.setMaDonDat(madondat);
                     chiTietDonDatDTO.setSoLuong(sluong);
-                    chiTietDonDatDTO.setGhichu(ghichu);
 
                     boolean ktracapnhat = chiTietDonDatDAO.ThemChiTietDonDat(chiTietDonDatDTO);
                     if(ktracapnhat){
