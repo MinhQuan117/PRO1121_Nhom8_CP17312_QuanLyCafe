@@ -41,9 +41,11 @@ public class ChiTietDonDatDAO {
         return soluong;
     }
 
+
     public boolean CapNhatSL(ChiTietDonDatDTO chiTietDonDatDTO){
         ContentValues contentValues = new ContentValues();
         contentValues.put(CreateDatabase.TBL_CHITIETDONDAT_SOLUONG, chiTietDonDatDTO.getSoLuong());
+        contentValues.put(CreateDatabase.TBL_CHITIETDONDAT_GHICHU, chiTietDonDatDTO.getGhichu());
 
         long ktra = database.update(CreateDatabase.TBL_CHITIETDONDAT,contentValues,CreateDatabase.TBL_CHITIETDONDAT_MADONDAT+ " = "
                 +chiTietDonDatDTO.getMaDonDat()+ " AND " +CreateDatabase.TBL_CHITIETDONDAT_MAMON+ " = "
@@ -58,6 +60,7 @@ public class ChiTietDonDatDAO {
     public boolean ThemChiTietDonDat(ChiTietDonDatDTO chiTietDonDatDTO){
         ContentValues contentValues = new ContentValues();
         contentValues.put(CreateDatabase.TBL_CHITIETDONDAT_SOLUONG,chiTietDonDatDTO.getSoLuong());
+        contentValues.put(CreateDatabase.TBL_CHITIETDONDAT_GHICHU,chiTietDonDatDTO.getGhichu());
         contentValues.put(CreateDatabase.TBL_CHITIETDONDAT_MADONDAT,chiTietDonDatDTO.getMaDonDat());
         contentValues.put(CreateDatabase.TBL_CHITIETDONDAT_MAMON,chiTietDonDatDTO.getMaMon());
 

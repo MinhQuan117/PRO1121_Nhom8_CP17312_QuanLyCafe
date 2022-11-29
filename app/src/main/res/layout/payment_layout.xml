@@ -122,24 +122,25 @@
                 android:textSize="20sp"
 
                 />
+
             <TextView
                 android:id="@+id/txt_payment_TongTien"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="780000 VNĐ"
-                android:paddingTop="10dp"
-                android:textColor="@color/black"
                 android:fontFamily="@font/muli_black"
+                android:paddingTop="10dp"
+                android:text="780000 VNĐ"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                />
+                android:layout_marginLeft="5dp"/>
 
         </LinearLayout>
 
         <Button
             android:id="@+id/btn_payment_ThanhToan"
             android:layout_centerVertical="true"
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:padding="10dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

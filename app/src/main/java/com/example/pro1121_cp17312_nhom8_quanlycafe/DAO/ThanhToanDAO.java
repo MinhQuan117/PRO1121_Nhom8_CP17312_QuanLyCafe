@@ -32,6 +32,7 @@ public class ThanhToanDAO {
             thanhToanDTO.setSoLuong(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_CHITIETDONDAT_SOLUONG)));
             thanhToanDTO.setGiaTien(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_MON_GIATIEN)));
             thanhToanDTO.setTenMon(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_MON_TENMON)));
+            thanhToanDTO.setGhiChu(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_CHITIETDONDAT_GHICHU)));
             thanhToanDTO.setHinhAnh(cursor.getBlob(cursor.getColumnIndex(CreateDatabase.TBL_MON_HINHANH)));
             thanhToanDTOS.add(thanhToanDTO);
 

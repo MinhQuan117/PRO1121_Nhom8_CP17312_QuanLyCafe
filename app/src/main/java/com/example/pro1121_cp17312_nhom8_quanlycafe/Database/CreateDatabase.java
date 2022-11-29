@@ -59,6 +59,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
     public static String TBL_CHITIETDONDAT_MADONDAT = "MADONDAT";
     public static String TBL_CHITIETDONDAT_MAMON = "MAMON";
     public static String TBL_CHITIETDONDAT_SOLUONG = "SOLUONG";
+    public static String TBL_CHITIETDONDAT_GHICHU = "GHICHU";
 
 
     public CreateDatabase(Context context) {
@@ -80,7 +81,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
 
         String tblMON = "CREATE TABLE " +TBL_MON+ " ( " +TBL_MON_MAMON+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 +TBL_MON_TENMON+ " TEXT, " +TBL_MON_GIATIEN+ " TEXT, " +TBL_MON_TINHTRANG+ " TEXT, "
-                +TBL_MON_HINHANH+ " BLOB, "+TBL_MON_MALOAI+ " INTEGER )";
+                +TBL_MON_HINHANH+ " BLOB, "+TBL_MON_MALOAI+ " INTEGER)";
 
         String tblLOAIMON = "CREATE TABLE " +TBL_LOAIMON+ " ( " +TBL_LOAIMON_MALOAI+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 +TBL_LOAIMON_HINHANH+ " BLOB, " +TBL_LOAIMON_TENLOAI+ " TEXT)" ;
@@ -90,7 +91,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
                 +TBL_DONDAT_TINHTRANG+ " TEXT )" ;
 
         String tblCHITIETDONDAT = "CREATE TABLE " +TBL_CHITIETDONDAT+ " ( " +TBL_CHITIETDONDAT_MADONDAT+ " INTEGER, "
-                +TBL_CHITIETDONDAT_MAMON+ " INTEGER, " +TBL_CHITIETDONDAT_SOLUONG+ " INTEGER, "
+                +TBL_CHITIETDONDAT_MAMON+ " INTEGER," +TBL_CHITIETDONDAT_SOLUONG+ " INTEGER, "+TBL_CHITIETDONDAT_GHICHU+" TEXT, "
                 + " PRIMARY KEY ( " +TBL_CHITIETDONDAT_MADONDAT+ "," +TBL_CHITIETDONDAT_MAMON+ "))";
 
         db.execSQL(tblNHANVIEN);

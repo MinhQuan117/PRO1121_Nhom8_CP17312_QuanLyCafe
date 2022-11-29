@@ -79,6 +79,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
 
             for (int i=0;i<thanhToanDTOS.size();i++) {
                 int soluong = thanhToanDTOS.get(i).getSoLuong();
+                String ghichu = thanhToanDTOS.get(i).getGhiChu();
                 int giatien = thanhToanDTOS.get(i).getGiaTien();
                 tongtien = (soluong * giatien);
 

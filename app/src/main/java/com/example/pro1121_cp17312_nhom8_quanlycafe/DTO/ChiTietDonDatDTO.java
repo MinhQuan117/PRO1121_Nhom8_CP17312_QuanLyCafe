@@ -1,8 +1,16 @@
 package com.example.pro1121_cp17312_nhom8_quanlycafe.DTO;
 
 public class ChiTietDonDatDTO {
-
+    String ghichu;
     int MaDonDat, MaMon, SoLuong;
+
+    public String getGhichu() {
+        return ghichu;
+    }
+
+    public void setGhichu(String ghichu) {
+        this.ghichu = ghichu;
+    }
 
     public int getMaDonDat() {
         return MaDonDat;

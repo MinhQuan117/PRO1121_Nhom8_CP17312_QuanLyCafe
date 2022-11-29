@@ -57,6 +57,7 @@ public class AdapterDisplayPayment extends BaseAdapter {
             viewHolder.txt_custompayment_TenMon = (TextView)view.findViewById(R.id.txt_custompayment_TenMon);
             viewHolder.txt_custompayment_SoLuong = (TextView)view.findViewById(R.id.txt_custompayment_SoLuong);
             viewHolder.txt_custompayment_GiaTien = (TextView)view.findViewById(R.id.txt_custompayment_GiaTien);
+            viewHolder.txt_custompayment_GhiChu = (TextView)view.findViewById(R.id.txt_custompayment_GhiChu);
 
             view.setTag(viewHolder);
         }else {
@@ -65,6 +66,7 @@ public class AdapterDisplayPayment extends BaseAdapter {
         ThanhToanDTO thanhToanDTO = thanhToanDTOList.get(position);
 
         viewHolder.txt_custompayment_TenMon.setText(thanhToanDTO.getTenMon());
+        viewHolder.txt_custompayment_GhiChu.setText(thanhToanDTO.getGhiChu());
         viewHolder.txt_custompayment_SoLuong.setText(String.valueOf(thanhToanDTO.getSoLuong()));
         viewHolder.txt_custompayment_GiaTien.setText(String.valueOf(thanhToanDTO.getGiaTien())+" đ");
 
@@ -77,6 +79,6 @@ public class AdapterDisplayPayment extends BaseAdapter {
 
     public class ViewHolder{
         CircleImageView img_custompayment_HinhMon;
-        TextView txt_custompayment_TenMon, txt_custompayment_SoLuong, txt_custompayment_GiaTien;
+        TextView txt_custompayment_TenMon, txt_custompayment_SoLuong, txt_custompayment_GiaTien, txt_custompayment_GhiChu;
     }
 }
