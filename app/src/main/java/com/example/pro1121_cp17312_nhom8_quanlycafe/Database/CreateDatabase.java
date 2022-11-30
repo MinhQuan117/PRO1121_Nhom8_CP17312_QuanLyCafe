@@ -62,6 +62,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
     public static String TBL_DONDAT_TINHTRANG = "TINHTRANG";
     public static String TBL_DONDAT_TONGTIEN = "TONGTIEN";
     public static String TBL_DONDAT_MABAN = "MABAN";
+    public static String TBL_DONDAT_MAKH = "MAKH";
 
     //Bảng chi tiết đơn đặt
     public static String TBL_CHITIETDONDAT_MADONDAT = "MADONDAT";
@@ -99,7 +100,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
                 +TBL_LOAIMON_HINHANH+ " BLOB, " +TBL_LOAIMON_TENLOAI+ " TEXT)" ;
 
         String tblDONDAT = "CREATE TABLE " +TBL_DONDAT+ " ( " +TBL_DONDAT_MADONDAT+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                +TBL_DONDAT_MABAN+ " INTEGER, " +TBL_DONDAT_MANV+ " INTEGER, " +TBL_DONDAT_NGAYDAT+ " TEXT, "+TBL_DONDAT_TONGTIEN+" TEXT,"
+                +TBL_DONDAT_MABAN+ " INTEGER, " +TBL_DONDAT_MANV+ " INTEGER, "+TBL_DONDAT_MAKH+" INTENGER," +TBL_DONDAT_NGAYDAT+ " TEXT, "+TBL_DONDAT_TONGTIEN+" TEXT,"
                 +TBL_DONDAT_TINHTRANG+ " TEXT )" ;
 
         String tblCHITIETDONDAT = "CREATE TABLE " +TBL_CHITIETDONDAT+ " ( " +TBL_CHITIETDONDAT_MADONDAT+ " INTEGER, "

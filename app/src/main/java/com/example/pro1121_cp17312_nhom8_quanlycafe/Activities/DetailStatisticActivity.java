@@ -11,8 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Adapter.AdapterDisplayPayment;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DAO.BanAnDAO;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.DAO.KhachHangDAO;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DAO.NhanVienDAO;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DAO.ThanhToanDAO;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.KhachHangDTO;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.NhanVienDTO;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.ThanhToanDTO;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.R;
@@ -26,9 +28,9 @@ public class DetailStatisticActivity extends AppCompatActivity {
     TextView txt_detailstatistic_MaDon,txt_detailstatistic_NgayDat,txt_detailstatistic_TenBan
             ,txt_detailstatistic_TenNV,txt_detailstatistic_TongTien;
     GridView gvDetailStatistic;
-    int madon, manv, maban;
+    int madon, makh, maban;
     String ngaydat, tongtien;
-    NhanVienDAO nhanVienDAO;
+    KhachHangDAO khachHangDAO;
     BanAnDAO banAnDAO;
     List<ThanhToanDTO> thanhToanDTOList;
     ThanhToanDAO thanhToanDAO;
@@ -41,7 +43,7 @@ public class DetailStatisticActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         madon = intent.getIntExtra("madon",0);
-        manv = intent.getIntExtra("manv",0);
+        makh = intent.getIntExtra("manv",0);
         maban = intent.getIntExtra("maban",0);
         ngaydat = intent.getStringExtra("ngaydat");
         tongtien = intent.getStringExtra("tongtien");
@@ -54,7 +56,7 @@ public class DetailStatisticActivity extends AppCompatActivity {
         txt_detailstatistic_TongTien = (TextView)findViewById(R.id.txt_detailstatistic_TongTien);
         gvDetailStatistic = (GridView)findViewById(R.id.gvDetailStatistic);
 
-        nhanVienDAO = new NhanVienDAO(this);
+        khachHangDAO = new KhachHangDAO(this);
         banAnDAO = new BanAnDAO(this);
         thanhToanDAO = new ThanhToanDAO(this);
 
@@ -63,10 +65,11 @@ public class DetailStatisticActivity extends AppCompatActivity {
             txt_detailstatistic_NgayDat.setText(ngaydat);
             txt_detailstatistic_TongTien.setText(tongtien+" VNĐ");
 
-            NhanVienDTO nhanVienDTO = nhanVienDAO.LayNVTheoMa(manv);
-            txt_detailstatistic_TenNV.setText(nhanVienDTO.getHOTENNV());
+            KhachHangDTO khachHangDTO = khachHangDAO.LayKHTheoMa(makh);
+            txt_detailstatistic_TenNV.setText(khachHangDTO.getHOTENKH());
             txt_detailstatistic_TenBan.setText(banAnDAO.LayTenBanTheoMa(maban));
 
+            HienThiDSCTDD();
         }
 
         img_detailstatistic_backbtn.setOnClickListener(new View.OnClickListener() {
