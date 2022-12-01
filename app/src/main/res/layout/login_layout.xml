@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DangNhapActivity"
-    android:background="#dcd2ca"
     android:padding="30dp"
     android:transitionName="transition_login"
     android:id="@+id/layoutLogin">
