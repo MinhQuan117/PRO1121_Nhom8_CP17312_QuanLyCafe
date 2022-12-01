@@ -25,9 +25,9 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
 
     private static final Pattern PASSWORD_PATTERN =
             Pattern.compile("^" +
-                    //"(?=.*[@#$%^&+=])" +     // at least 1 special character
-                    "(?=\\S+$)" +            // no white spaces
-                    ".{6,}" +                // at least 4 characters
+                    //"(?=.*[@#$%^&+=])" +
+                    "(?=\\S+$)" +
+                    ".{6,}" +
                     "$");
 
     ImageView IMG_addstaff_back;
@@ -47,7 +47,6 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addstaff_layout);
 
-        //region Lấy đối tượng trong view
         TXT_addstaff_title = (TextView)findViewById(R.id.txt_addstaff_title);
         IMG_addstaff_back = (ImageView)findViewById(R.id.img_addstaff_back);
         TXTL_addstaff_HoVaTen = (TextInputLayout)findViewById(R.id.txtl_addstaff_HoVaTen);
@@ -65,24 +64,20 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
         DT_addstaff_NgaySinh = (DatePicker)findViewById(R.id.dt_addstaff_NgaySinh);
         BTN_addstaff_ThemNV = (Button)findViewById(R.id.btn_addstaff_ThemNV);
 
-        //endregion
 
         nhanVienDAO = new NhanVienDAO(this);
 
-        //region Hiển thị trang sửa nếu được chọn từ context menu sửa
         manv = getIntent().getIntExtra("manv",0);   //lấy manv từ display staff
         if(manv != 0){
             TXT_addstaff_title.setText("Sửa nhân viên");
             NhanVienDTO nhanVienDTO = nhanVienDAO.LayNVTheoMa(manv);
 
-            //Hiển thị thông tin từ csdl
             TXTL_addstaff_HoVaTen.getEditText().setText(nhanVienDTO.getHOTENNV());
             TXTL_addstaff_TenDN.getEditText().setText(nhanVienDTO.getTENDN());
             TXTL_addstaff_Email.getEditText().setText(nhanVienDTO.getEMAIL());
             TXTL_addstaff_SDT.getEditText().setText(nhanVienDTO.getSDT());
             TXTL_addstaff_MatKhau.getEditText().setText(nhanVienDTO.getMATKHAU());
 
-            //Hiển thị giới tính từ csdl
             String gioitinh = nhanVienDTO.getGIOITINH();
             if(gioitinh.equals("Nam")){
                 RD_addstaff_Nam.setChecked(true);
@@ -98,7 +93,6 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
                 rd_addstaff_NhanVien.setChecked(true);
             }
 
-            //Hiển thị ngày sinh từ csdl
             String date = nhanVienDTO.getNGAYSINH();
             String[] items = date.split("/");
             int day = Integer.parseInt(items[0]);
@@ -107,7 +101,6 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
             DT_addstaff_NgaySinh.updateDate(year,month,day);
             BTN_addstaff_ThemNV.setText("Sửa nhân viên");
         }
-        //endregion
 
         BTN_addstaff_ThemNV.setOnClickListener(this);
         IMG_addstaff_back.setOnClickListener(this);
@@ -294,6 +287,5 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
 //            return true;
 //        }
 //    }
-    //endregion
 
 }

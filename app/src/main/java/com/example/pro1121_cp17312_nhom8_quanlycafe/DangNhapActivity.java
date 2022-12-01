@@ -16,7 +16,7 @@ import com.example.pro1121_cp17312_nhom8_quanlycafe.DAO.NhanVienDAO;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class DangNhapActivity extends AppCompatActivity {
-    Button BTN_login_DangNhap, BTN_login_DangKy;
+    Button BTN_login_DangNhap;
     TextInputLayout TXTL_login_TenDN, TXTL_login_MatKhau;
     NhanVienDAO nhanVienDAO;
 
@@ -25,65 +25,31 @@ public class DangNhapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
 
-        //thuộc tính view
         TXTL_login_TenDN = (TextInputLayout)findViewById(R.id.txtl_login_TenDN);
         TXTL_login_MatKhau = (TextInputLayout)findViewById(R.id.txtl_login_MatKhau);
         BTN_login_DangNhap = (Button)findViewById(R.id.btn_login_DangNhap);
 
-
-        nhanVienDAO = new NhanVienDAO(this);    //khởi tạo kết nối csdl
-
         BTN_login_DangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!validateUserName() | !validatePassWord()){
-                    return;
-                }
-
-                String tenDN = TXTL_login_TenDN.getEditText().getText().toString();
-                String matKhau = TXTL_login_MatKhau.getEditText().getText().toString();
-                int ktra = nhanVienDAO.KiemTraDN(tenDN,matKhau);
-                int maquyen = nhanVienDAO.LayQuyenNV(ktra);
-                if(ktra != 1){
-                    // lưu mã quyền vào shareprefer
-                    SharedPreferences sharedPreferences = getSharedPreferences("luuquyen", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor =sharedPreferences.edit();
-                    editor.putInt("maquyen",maquyen);
-                    editor.commit();
-
-                    //gửi dữ liệu user qua trang chủ
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                    intent.putExtra("tendn",TXTL_login_TenDN.getEditText().getText().toString());
-                    intent.putExtra("manv",ktra);
+                if (TXTL_login_TenDN.getEditText().getText().toString().equals("thungansang") ||
+                        TXTL_login_TenDN.getEditText().getText().toString().equals("thunganchieu") ||
+                        TXTL_login_TenDN.getEditText().getText().toString().equals("thungantoi")
+                                && TXTL_login_MatKhau.getEditText().getText().toString().equals("123456")){
+                    Toast.makeText(DangNhapActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
                     startActivity(intent);
-                }else {
-                    Toast.makeText(getApplicationContext(),"Đăng nhập thất bại!",Toast.LENGTH_SHORT).show();
+                }else if (TXTL_login_TenDN.getEditText().getText().toString().equals("") || TXTL_login_MatKhau.getEditText().getText().toString().equals("")){
+                    validateUserName();
+                    validatePassWord();
+                }else{
+                    Toast.makeText(DangNhapActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
     }
 
-    //Hàm quay lại màn hình chính
-    public void backFromLogin(View view)
-    {
-        Intent intent = new Intent(getApplicationContext(),ManHinhChoActivity.class);
-        //tạo animation cho thành phần
-        Pair[] pairs = new Pair[1];
-        pairs[0] = new Pair<View, String>(findViewById(R.id.layoutLogin),"transition_login");
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(DangNhapActivity.this,pairs);
-            startActivity(intent,options.toBundle());
-        }
-        else {
-            startActivity(intent);
-        }
-    }
-
-
-
-    //region Validate field
     private boolean validateUserName(){
         String val = TXTL_login_TenDN.getEditText().getText().toString().trim();
 
@@ -109,5 +75,4 @@ public class DangNhapActivity extends AppCompatActivity {
             return true;
         }
     }
-    //endregion
 }

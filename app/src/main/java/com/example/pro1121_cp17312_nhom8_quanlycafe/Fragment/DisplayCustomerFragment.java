@@ -123,7 +123,7 @@ public class DisplayCustomerFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        MenuItem itAddStaff = menu.add(1,R.id.itAddStaff,1,"Thêm nhân viên");
+        MenuItem itAddStaff = menu.add(1,R.id.itAddCustomer ,1,"Thêm nhân viên");
         itAddStaff.setIcon(R.drawable.ic_baseline_add_24);
         itAddStaff.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
     }
@@ -132,7 +132,7 @@ public class DisplayCustomerFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id){
-            case R.id.itAddStaff:
+            case R.id.itAddCustomer:
                 Intent iDangky = new Intent(getActivity(), AddCustomer.class);
                 resultLauncherAdd.launch(iDangky);
                 break;

@@ -26,7 +26,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
     public static String TBL_NHANVIEN_NGAYSINH = "NGAYSINH";
     public static String TBL_NHANVIEN_MAQUYEN= "MAQUYEN";
 
-    //bang khach hang
+    //Bảng khách hàng
     public static String TBL_KHACHHANG_MAKH = "MAKH";
     public static String TBL_KHACHHANG_HOTENKH = "HOTENKH";
     public static String TBL_KHACHHANG_EMAIL = "EMAIL";

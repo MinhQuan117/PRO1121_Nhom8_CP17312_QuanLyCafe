@@ -28,9 +28,9 @@ public class AddCustomer extends AppCompatActivity implements View.OnClickListen
 
     private static final Pattern PASSWORD_PATTERN =
             Pattern.compile("^" +
-                    //"(?=.*[@#$%^&+=])" +     // at least 1 special character
-                    "(?=\\S+$)" +            // no white spaces
-                    ".{6,}" +                // at least 4 characters
+                    //"(?=.*[@#$%^&+=])" +
+                    "(?=\\S+$)" +
+                    ".{6,}" +
                     "$");
 
     ImageView img_back;
@@ -49,7 +49,6 @@ public class AddCustomer extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addcustomer);
 
-        //region Lấy đối tượng trong view
         txt_title = (TextView)findViewById(R.id.txt_title);
         img_back = (ImageView)findViewById(R.id.img_back);
         txtl_HoVaTen = (TextInputLayout)findViewById(R.id.txtl_HoVaTen);
@@ -61,22 +60,18 @@ public class AddCustomer extends AppCompatActivity implements View.OnClickListen
         rd_Khac = (RadioButton)findViewById(R.id.rd_Khac);
         btn_ThemKH = (Button)findViewById(R.id.btn_ThemKH);
 
-        //endregion
 
         khachHangDAO = new KhachHangDAO(this);
 
-        //region Hiển thị trang sửa nếu được chọn từ context menu sửa
-        makh = getIntent().getIntExtra("makh",0);   //lấy manv từ display staff
+        makh = getIntent().getIntExtra("makh",0);
         if(makh != 0){
             txt_title.setText("Sửa nhân viên");
             KhachHangDTO khachHangDTO = khachHangDAO.LayKHTheoMa(makh);
 
-            //Hiển thị thông tin từ csdl
             txtl_HoVaTen.getEditText().setText(khachHangDTO.getHOTENKH());
             txtl_Email.getEditText().setText(khachHangDTO.getEMAIL());
             txtl_SDT.getEditText().setText(khachHangDTO.getSDT());
 
-            //Hiển thị giới tính từ csdl
             String gioitinh = khachHangDTO.getGIOITINH();
             if(gioitinh.equals("Nam")){
                 rd_Nam.setChecked(true);
@@ -89,7 +84,6 @@ public class AddCustomer extends AppCompatActivity implements View.OnClickListen
 
             btn_ThemKH.setText("Sửa nhân viên");
         }
-        //endregion
 
         btn_ThemKH.setOnClickListener(this);
         img_back.setOnClickListener(this);
@@ -104,7 +98,6 @@ public class AddCustomer extends AppCompatActivity implements View.OnClickListen
                 if(  !validateEmail() | !validateFullName() | !validateGender() | !validatePhone()){
                     return;
                 }
-                //Lấy dữ liệu từ view
                 hoTen = txtl_HoVaTen.getEditText().getText().toString();
 
                 eMail = txtl_Email.getEditText().getText().toString();
@@ -117,7 +110,6 @@ public class AddCustomer extends AppCompatActivity implements View.OnClickListen
                     case R.id.rd_Khac: gioiTinh = "Khác"; break;
                 }
 
-                //truyền dữ liệu vào obj nhanvienDTO
                 KhachHangDTO khachHangDTO = new KhachHangDTO();
                 khachHangDTO.setHOTENKH(hoTen);
                 khachHangDTO.setEMAIL(eMail);
@@ -132,7 +124,6 @@ public class AddCustomer extends AppCompatActivity implements View.OnClickListen
                     ktra = khachHangDAO.ThemKhachHang(khachHangDTO);
                     chucnang = "themkh";
                 }
-                //Thêm, sửa nv dựa theo obj nhanvienDTO
                 Intent intent = new Intent();
                 intent.putExtra("ketquaktra",ktra);
                 intent.putExtra("chucnang",chucnang);
@@ -147,7 +138,6 @@ public class AddCustomer extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-    //region validate fields
     private boolean validateFullName(){
         String val = txtl_HoVaTen.getEditText().getText().toString().trim();
 
@@ -207,7 +197,6 @@ public class AddCustomer extends AppCompatActivity implements View.OnClickListen
             return true;
         }
     }
-
 
 
 }
