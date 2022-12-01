@@ -16,4 +16,8 @@
         android:id="@+id/itAddStaff"
         android:title="Thêm nhân viên"
         />
+    <item
+        android:id="@+id/itAddCustomer"
+        android:title="Thêm khách hàng"
+        />
 </menu>

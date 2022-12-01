@@ -19,7 +19,6 @@ public class BanAnDAO {
         database = createDatabase.open();
     }
 
-    //Hàm thêm bàn ăn mới
     public boolean ThemBanAn(String tenban){
         ContentValues contentValues = new ContentValues();
         contentValues.put(CreateDatabase.TBL_BAN_TENBAN,tenban);
@@ -33,7 +32,6 @@ public class BanAnDAO {
         }
     }
 
-    //Hàm xóa bàn ăn theo mã
     public boolean XoaBanTheoMa(int maban){
         long ktra =database.delete(CreateDatabase.TBL_BAN,CreateDatabase.TBL_BAN_MABAN+" = "+maban,null);
         if(ktra != 0){
@@ -43,7 +41,6 @@ public class BanAnDAO {
         }
     }
 
-    //Sửa tên bàn
     public boolean CapNhatTenBan(int maban, String tenban){
         ContentValues contentValues = new ContentValues();
         contentValues.put(CreateDatabase.TBL_BAN_TENBAN,tenban);
@@ -56,7 +53,6 @@ public class BanAnDAO {
         }
     }
 
-    //Hàm lấy ds các bàn ăn đổ vào gridview
     public List<BanAnDTO> LayTatCaBanAn(){
         List<BanAnDTO> banAnDTOList = new ArrayList<BanAnDTO>();
         String query = "SELECT * FROM " +CreateDatabase.TBL_BAN;

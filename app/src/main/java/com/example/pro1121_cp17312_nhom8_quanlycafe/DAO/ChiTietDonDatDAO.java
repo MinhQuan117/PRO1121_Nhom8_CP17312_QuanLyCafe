@@ -41,20 +41,6 @@ public class ChiTietDonDatDAO {
         return soluong;
     }
 
-    public String LayGhiChuMonTheoMaDon(int madondat, int mamon){
-        String ghichu = "";
-        String query = "SELECT * FROM " +CreateDatabase.TBL_CHITIETDONDAT+ " WHERE " +CreateDatabase.TBL_CHITIETDONDAT_MAMON+
-                " = " +mamon+ " AND " +CreateDatabase.TBL_CHITIETDONDAT_MADONDAT+ " = "+madondat;
-        Cursor cursor = database.rawQuery(query,null);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
-            ghichu = String.valueOf((cursor.getColumnIndex(CreateDatabase.TBL_CHITIETDONDAT_GHICHU)));
-            cursor.moveToNext();
-        }
-        return ghichu;
-    }
-
-
     public boolean CapNhatSL(ChiTietDonDatDTO chiTietDonDatDTO){
         ContentValues contentValues = new ContentValues();
         contentValues.put(CreateDatabase.TBL_CHITIETDONDAT_SOLUONG, chiTietDonDatDTO.getSoLuong());

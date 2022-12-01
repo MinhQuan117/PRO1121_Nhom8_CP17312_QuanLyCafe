@@ -70,7 +70,6 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addmenu_layout);
 
-        //region Lấy đối tượng view
         IMG_addmenu_ThemHinh = (ImageView)findViewById(R.id.img_addmenu_ThemHinh);
         IMG_addmenu_ThemHinh.setTag(R.drawable.drinkfood);
         IMG_addmenu_back = (ImageView)findViewById(R.id.img_addmenu_back);
@@ -83,7 +82,6 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         RG_addmenu_TinhTrang = (RadioGroup)findViewById(R.id.rg_addmenu_TinhTrang);
         RD_addmenu_ConMon = (RadioButton)findViewById(R.id.rd_addmenu_ConMon);
         RD_addmenu_HetMon = (RadioButton)findViewById(R.id.rd_addmenu_HetMon);
-        //endregion
 
         Intent intent = getIntent();
         maloai = intent.getIntExtra("maLoai",-1);
@@ -94,7 +92,6 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         BitmapDrawable olddrawable = (BitmapDrawable)IMG_addmenu_ThemHinh.getDrawable();
         bitmapold = olddrawable.getBitmap();
 
-        //region Hiển thị trang sửa nếu được chọn từ context menu sửa
         mamon = getIntent().getIntExtra("mamon",0);
         if(mamon != 0){
             TXT_addmenu_title.setText("Sửa thực đơn");
@@ -118,7 +115,6 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
             BTN_addmenu_ThemMon.setText("Sửa món");
         }
 
-        //endregion
 
         IMG_addmenu_ThemHinh.setOnClickListener(this);
         BTN_addmenu_ThemMon.setOnClickListener(this);
@@ -170,7 +166,6 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
                     chucnang = "themmon";
                 }
 
-                //Thêm, sửa món dựa theo obj loaimonDTO
                 Intent intent = new Intent();
                 intent.putExtra("ktra",ktra);
                 intent.putExtra("chucnang",chucnang);
@@ -181,7 +176,6 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-    //Chuyển ảnh bitmap về mảng byte lưu vào csdl
     private byte[] imageViewtoByte(ImageView imageView){
         Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -190,7 +184,6 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         return byteArray;
     }
 
-    //region Validate field
     private boolean validateImage(){
         BitmapDrawable drawable = (BitmapDrawable)IMG_addmenu_ThemHinh.getDrawable();
         Bitmap bitmap = drawable.getBitmap();
@@ -229,6 +222,5 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
             return true;
         }
     }
-    //endregion
 
 }

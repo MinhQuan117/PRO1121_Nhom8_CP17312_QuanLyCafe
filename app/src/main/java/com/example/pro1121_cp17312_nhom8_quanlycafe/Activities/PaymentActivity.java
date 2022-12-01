@@ -45,7 +45,6 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment_layout);
 
-        //region thuộc tính view
         gvDisplayPayment= (GridView)findViewById(R.id.gvDisplayPayment);
         IMG_payment_backbtn = (ImageView)findViewById(R.id.img_payment_backbtn);
         TXT_payment_TenBan = (TextView)findViewById(R.id.txt_payment_TenBan);
@@ -54,16 +53,13 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         BTN_payment_ThanhToan = (Button)findViewById(R.id.btn_payment_ThanhToan);
         ChkisVIP = (CheckBox) findViewById(R.id.ChkVip);
 
-        //endregion
 
-        //khởi tạo kết nối csdl
         donDatDAO = new DonDatDAO(this);
         thanhToanDAO = new ThanhToanDAO(this);
         banAnDAO = new BanAnDAO(this);
 
         fragmentManager = getSupportFragmentManager();
 
-        //lấy data từ mã bàn đc chọn
         Intent intent = getIntent();
         maban = intent.getIntExtra("maban",0);
         String tenban = intent.getStringExtra("tenban");
@@ -72,7 +68,6 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         TXT_payment_TenBan.setText(tenban);
         TXT_payment_NgayDat.setText(ngaydat);
 
-        //ktra mã bàn tồn tại thì hiển thị
         if(maban !=0 ){
             HienThiThanhToan();
 

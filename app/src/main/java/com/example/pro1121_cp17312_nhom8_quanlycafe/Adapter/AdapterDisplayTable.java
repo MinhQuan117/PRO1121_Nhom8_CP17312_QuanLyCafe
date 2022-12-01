@@ -90,7 +90,6 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
         BanAnDTO banAnDTO = banAnDTOList.get(position);
 
         String kttinhtrang = banAnDAO.LayTinhTrangBanTheoMa(banAnDTO.getMaBan());
-        //đổi hình theo tình trạng
         if(kttinhtrang.equals("true")){
             viewHolder.imgBanAn.setImageResource(R.drawable.table_seat);
         }else {
@@ -139,7 +138,6 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
                 String tinhtrang = banAnDAO.LayTinhTrangBanTheoMa(maban);
 
                 if(tinhtrang.equals("false")){
-                    //Thêm bảng gọi món và update tình trạng bàn
                     DonDatDTO donDatDTO = new DonDatDTO();
                     donDatDTO.setMaBan(maban);
                     donDatDTO.setMaNV(manv);
@@ -151,7 +149,6 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
                     banAnDAO.CapNhatTinhTrangBan(maban,"true");
                     if(ktra == 0){ Toast.makeText(context,context.getResources().getString(R.string.add_failed),Toast.LENGTH_SHORT).show(); }
                 }
-                //chuyển qua trang category
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 DisplayCategoryFragment displayCategoryFragment = new DisplayCategoryFragment();
 
@@ -164,7 +161,6 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
                 break;
 
             case R.id.img_customtable_ThanhToan:
-                //chuyển dữ liệu qua trang thanh toán
                 Intent iThanhToan = new Intent(context, PaymentActivity.class);
                 iThanhToan.putExtra("maban",maban);
                 iThanhToan.putExtra("tenban",tenban);
