@@ -22,6 +22,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
 
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Activities.AddCustomer;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.Activities.PaymentActivity;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Adapter.AdapterDisplayCustomer;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DAO.KhachHangDAO;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DAO.NhanVienDAO;
@@ -96,7 +97,11 @@ public class DisplayCustomerFragment extends Fragment {
         AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         int vitri = menuInfo.position;
         int makh = khachHangDTOS.get(vitri).getMAKH();
-
+        Intent intent = new Intent(getActivity(), PaymentActivity.class);
+        Bundle tuidung = new Bundle();
+        tuidung.putString("tenKH",khachHangDTOS.get(vitri).getHOTENKH());
+        intent.putExtras(tuidung);
+        startActivity(intent);
         switch (id){
             case R.id.itEdit:
                 Intent iEdit = new Intent(getActivity(), AddCustomer.class);

@@ -3,11 +3,15 @@ package com.example.pro1121_cp17312_nhom8_quanlycafe.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.SimpleAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,13 +19,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Adapter.AdapterDisplayPayment;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.Adapter.AdapterDisplayStatistic;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DAO.BanAnDAO;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DAO.DonDatDAO;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.DAO.KhachHangDAO;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DAO.ThanhToanDAO;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.KhachHangDTO;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.ThanhToanDTO;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.DisplayStatisticFragment;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.R;
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class PaymentActivity extends AppCompatActivity implements View.OnClickListener {
@@ -39,6 +49,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
     long tongtien = 0;
     int maban, madondat;
     FragmentManager fragmentManager;
+    Spinner spinnerKhachHang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +63,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         TXT_payment_TongTien = (TextView)findViewById(R.id.txt_payment_TongTien);
         BTN_payment_ThanhToan = (Button)findViewById(R.id.btn_payment_ThanhToan);
         ChkisVIP = (CheckBox) findViewById(R.id.ChkVip);
-
+        spinnerKhachHang = findViewById(R.id.SpinnerKhachHang);
 
         donDatDAO = new DonDatDAO(this);
         thanhToanDAO = new ThanhToanDAO(this);
@@ -68,6 +79,37 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         TXT_payment_TenBan.setText(tenban);
         TXT_payment_NgayDat.setText(ngaydat);
 
+        KhachHangDAO khachHangDAO = new KhachHangDAO(PaymentActivity.this);
+        Bundle bundle = getIntent().getExtras();
+
+        ArrayList<KhachHangDTO> list = (ArrayList<KhachHangDTO>) khachHangDAO.LayDSKH();
+        ArrayList<HashMap<String,String>> listSPN = new ArrayList<>();
+
+        for(KhachHangDTO khachHangDTO : list){
+            HashMap<String,String> hashMap = new HashMap<>();
+
+            hashMap.put("tenKH",khachHangDTO.getHOTENKH());
+
+            listSPN.add(hashMap);
+        }
+        SimpleAdapter adapter = new SimpleAdapter(PaymentActivity.this,
+                listSPN,
+                R.layout.item_spinnerkh,
+                new String[]{"tenKH"},
+                new int[]{R.id.txtTenKH});
+        spinnerKhachHang.setAdapter(adapter);
+        spinnerKhachHang.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         if(maban !=0 ){
             HienThiThanhToan();
 
