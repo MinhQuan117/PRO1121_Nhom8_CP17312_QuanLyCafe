@@ -65,7 +65,7 @@ public class AddCustomer extends AppCompatActivity implements View.OnClickListen
 
         makh = getIntent().getIntExtra("makh",0);
         if(makh != 0){
-            txt_title.setText("Sửa nhân viên");
+            txt_title.setText("Sửa khách hàng");
             KhachHangDTO khachHangDTO = khachHangDAO.LayKHTheoMa(makh);
 
             txtl_HoVaTen.getEditText().setText(khachHangDTO.getHOTENKH());
@@ -82,7 +82,7 @@ public class AddCustomer extends AppCompatActivity implements View.OnClickListen
             }
 
 
-            btn_ThemKH.setText("Sửa nhân viên");
+            btn_ThemKH.setText("Sửa khách hàng");
         }
 
         btn_ThemKH.setOnClickListener(this);

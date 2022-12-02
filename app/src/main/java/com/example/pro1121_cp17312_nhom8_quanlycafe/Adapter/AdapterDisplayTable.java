@@ -87,13 +87,17 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
             AnButton();
         }
 
+
+
         BanAnDTO banAnDTO = banAnDTOList.get(position);
 
         String kttinhtrang = banAnDAO.LayTinhTrangBanTheoMa(banAnDTO.getMaBan());
         if(kttinhtrang.equals("true")){
             viewHolder.imgBanAn.setImageResource(R.drawable.table_seat);
+
         }else {
             viewHolder.imgBanAn.setImageResource(R.drawable.table_coffee);
+            AnButton();
         }
 
         viewHolder.txtTenBanAn.setText(banAnDTO.getTenBan());
@@ -130,6 +134,7 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
 
             case R.id.img_customtable_AnNut:
                 AnButton();
+                viewHolder.imgBanAn.setImageResource(R.drawable.table_coffee);
                 break;
 
             case R.id.img_customtable_GoiMon:
