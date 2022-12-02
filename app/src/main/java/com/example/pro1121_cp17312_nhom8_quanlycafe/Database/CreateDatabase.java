@@ -114,7 +114,9 @@ public class CreateDatabase extends SQLiteOpenHelper {
         db.execSQL(tblLOAIMON);
         db.execSQL(tblDONDAT);
         db.execSQL(tblCHITIETDONDAT);
+
         db.execSQL(tblKHACHHANG);
+
     }
 
     @Override

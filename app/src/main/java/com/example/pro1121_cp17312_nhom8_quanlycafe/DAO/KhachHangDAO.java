@@ -76,7 +76,7 @@ public class KhachHangDAO {
     }
 
     public boolean XoaKH(int makh){
-        long ktra = database.delete(CreateDatabase.TBL_NHANVIEN,CreateDatabase.TBL_NHANVIEN_MANV+ " = " +makh
+        long ktra = database.delete(CreateDatabase.TBL_KHACHHANG,CreateDatabase.TBL_KHACHHANG_MAKH+ " = " +makh
                 ,null);
         if(ktra !=0 ){
             return true;

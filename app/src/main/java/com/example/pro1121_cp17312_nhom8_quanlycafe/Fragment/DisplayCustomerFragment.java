@@ -87,7 +87,7 @@ public class DisplayCustomerFragment extends Fragment {
     @Override
     public void onCreateContextMenu(ContextMenu menu,View v,ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        getActivity().getMenuInflater().inflate(R.menu.edit_context_menu,menu);
+        getActivity().getMenuInflater().inflate(R.menu.edit_menu,menu);
     }
 
     @Override
@@ -104,17 +104,7 @@ public class DisplayCustomerFragment extends Fragment {
                 resultLauncherAdd.launch(iEdit);
                 break;
 
-//            case R.id.itDelete:
-//                boolean ktra = khachHangDAO.XoaKH(makh);
-//                if(ktra){
-//                    HienThiDSKH();
-//                    Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.delete_sucessful)
-//                            ,Toast.LENGTH_SHORT).show();
-//                }else {
-//                    Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.delete_failed)
-//                            ,Toast.LENGTH_SHORT).show();
-//                }
-//                break;
+
         }
 
         return true;
