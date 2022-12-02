@@ -18,7 +18,7 @@
         >
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_custompayment_HinhMon"
-            android:layout_width="40dp"
+            android:layout_width="50dp"
             android:layout_height="70dp"
             android:src="@drawable/cafe_americano"
             />
@@ -31,11 +31,9 @@
             <TextView
                 android:id="@+id/txt_custompayment_TenMon"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:paddingTop="10dp"
+                android:layout_height="40dp"
                 android:text="Cafe americano with ice"
                 android:gravity="center"
-                android:layout_weight="3"
                 android:layout_gravity="center"
                 android:paddingLeft="7dp"
                 android:textSize="16sp"
