@@ -19,7 +19,7 @@
                     <item
                         android:id="@+id/nav_table"
                         android:title="Bàn ăn"
-                        android:icon="@drawable/ic_baseline_airline_seat_legroom_normal_24"/>
+                        android:icon="@drawable/table_coffee"/>
                     <item
                         android:id="@+id/nav_category"
                         android:title="Thực đơn"
@@ -27,7 +27,7 @@
 
                     <item
                         android:id="@+id/nav_staff"
-                        android:title="Khach hang"
+                        android:title="Khách hàng"
                         android:icon="@drawable/ic_baseline_person_24"/>
                     <item
                         android:id="@+id/nav_thongke"

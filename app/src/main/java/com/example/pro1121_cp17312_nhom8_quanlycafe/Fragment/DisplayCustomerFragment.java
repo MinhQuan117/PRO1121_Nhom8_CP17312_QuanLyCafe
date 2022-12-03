@@ -72,7 +72,7 @@ public class DisplayCustomerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.displaycustomer_layout,container,false);
-        ((MainActivity)getActivity()).getSupportActionBar().setTitle("Quản lý khach hang");
+        ((MainActivity)getActivity()).getSupportActionBar().setTitle("Quản lý khách hàng");
         setHasOptionsMenu(true);
 
         lvcustomer = (ListView) view.findViewById(R.id.lvcustomer) ;
@@ -118,7 +118,7 @@ public class DisplayCustomerFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        MenuItem itAddStaff = menu.add(1,R.id.itAddCustomer ,1,"Thêm nhân viên");
+        MenuItem itAddStaff = menu.add(1,R.id.itAddCustomer ,1,"Thêm khách hàng");
         itAddStaff.setIcon(R.drawable.ic_baseline_add_24);
         itAddStaff.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
     }

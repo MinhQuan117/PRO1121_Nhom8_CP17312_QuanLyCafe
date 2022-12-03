@@ -59,7 +59,7 @@
         >
 
         <TextView
-            android:id="@+id/txt_customstatistic_TenNV"
+            android:id="@+id/txt_customstatistic_TenKH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Đỗ Quốc Thái"
@@ -70,7 +70,7 @@
             />
         <TextView
             android:id="@+id/txt_customstatistic_BanDat"
-            android:layout_below="@id/txt_customstatistic_TenNV"
+            android:layout_below="@id/txt_customstatistic_TenKH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bàn 1"

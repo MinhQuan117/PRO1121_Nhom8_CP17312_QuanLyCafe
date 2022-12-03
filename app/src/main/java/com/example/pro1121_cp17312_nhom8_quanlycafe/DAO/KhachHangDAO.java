@@ -75,15 +75,7 @@ public class KhachHangDAO {
         return khachHangDTOS;
     }
 
-    public boolean XoaKH(int makh){
-        long ktra = database.delete(CreateDatabase.TBL_KHACHHANG,CreateDatabase.TBL_KHACHHANG_MAKH+ " = " +makh
-                ,null);
-        if(ktra !=0 ){
-            return true;
-        }else {
-            return false;
-        }
-    }
+
 
     public KhachHangDTO LayKHTheoMa(int makh){
         KhachHangDTO khachHangDTO = new KhachHangDTO();

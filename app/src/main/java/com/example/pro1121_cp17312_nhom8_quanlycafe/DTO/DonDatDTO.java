@@ -2,8 +2,16 @@ package com.example.pro1121_cp17312_nhom8_quanlycafe.DTO;
 
 public class DonDatDTO {
 
-    int MaDonDat,MaBan ,MaNV;
+    int MaDonDat,MaBan ,MaNV,MaKH;
     String TinhTrang,NgayDat,TongTien;
+
+    public int getMaKH() {
+        return MaKH;
+    }
+
+    public void setMaKH(int maKH) {
+        MaKH = maKH;
+    }
 
     public int getMaDonDat() {
         return MaDonDat;

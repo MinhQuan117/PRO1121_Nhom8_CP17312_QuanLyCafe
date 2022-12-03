@@ -94,7 +94,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:padding="10dp"
         android:background="@drawable/corner_border_white"
         android:layout_margin="5dp"
         android:elevation="10dp"
@@ -113,7 +113,16 @@
                 android:layout_height="wrap_content"
                 android:text="Tổng tiền"
                 android:textColor="@color/black"
-                android:fontFamily="@font/muli"
+
+                android:fontFamily="@font/muli_black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên khách hàng"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
@@ -123,7 +132,7 @@
                 android:layout_height="wrap_content"
 
                 android:layout_centerHorizontal="true"
-                android:text="Khách hàng là VIP"
+                android:text="Khách hàng VIP"
                 android:textSize="20sp"
 
                 />
@@ -132,7 +141,6 @@
                 android:id="@+id/txt_payment_TongTien"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/muli_black"
                 android:paddingTop="10dp"
                 android:text="780000 VNĐ"
                 android:textColor="@color/black"

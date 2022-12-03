@@ -78,7 +78,7 @@ public class AdapterRecycleViewStatistic extends RecyclerView.Adapter<AdapterRec
             super(itemView);
             txt_customstatistic_MaDon = itemView.findViewById(R.id.txt_customstatistic_MaDon);
             txt_customstatistic_NgayDat = itemView.findViewById(R.id.txt_customstatistic_NgayDat);
-            txt_customstatistic_TenNV = itemView.findViewById(R.id.txt_customstatistic_TenNV);
+            txt_customstatistic_TenNV = itemView.findViewById(R.id.txt_customstatistic_TenKH);
             txt_customstatistic_BanDat = itemView.findViewById(R.id.txt_customstatistic_BanDat);
             txt_customstatistic_TongTien = itemView.findViewById(R.id.txt_customstatistic_TongTien);
             txt_customstatistic_TrangThai = itemView.findViewById(R.id.txt_customstatistic_TrangThai);

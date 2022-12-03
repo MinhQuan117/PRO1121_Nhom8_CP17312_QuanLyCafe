@@ -8,8 +8,10 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DAO.BanAnDAO;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.DAO.KhachHangDAO;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DAO.NhanVienDAO;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.DonDatDTO;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.KhachHangDTO;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.NhanVienDTO;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.R;
 
@@ -21,14 +23,14 @@ public class AdapterDisplayStatistic extends BaseAdapter {
     int layout;
     List<DonDatDTO> donDatDTOS;
     ViewHolder viewHolder;
-    NhanVienDAO nhanVienDAO;
+    KhachHangDAO khachHangDAO;
     BanAnDAO banAnDAO;
 
     public AdapterDisplayStatistic(Context context, int layout, List<DonDatDTO> donDatDTOS){
         this.context = context;
         this.layout = layout;
         this.donDatDTOS = donDatDTOS;
-        nhanVienDAO = new NhanVienDAO(context);
+        khachHangDAO = new KhachHangDAO(context);
         banAnDAO = new BanAnDAO(context);
     }
 
@@ -57,7 +59,7 @@ public class AdapterDisplayStatistic extends BaseAdapter {
 
             viewHolder.txt_customstatistic_MaDon = (TextView)view.findViewById(R.id.txt_customstatistic_MaDon);
             viewHolder.txt_customstatistic_NgayDat = (TextView)view.findViewById(R.id.txt_customstatistic_NgayDat);
-            viewHolder.txt_customstatistic_TenNV = (TextView)view.findViewById(R.id.txt_customstatistic_TenNV);
+            viewHolder.txt_detailstatistic_TenKH = (TextView)view.findViewById(R.id.txt_customstatistic_TenKH);
             viewHolder.txt_customstatistic_TongTien = (TextView)view.findViewById(R.id.txt_customstatistic_TongTien);
             viewHolder.txt_customstatistic_TrangThai = (TextView)view.findViewById(R.id.txt_customstatistic_TrangThai);
             viewHolder.txt_customstatistic_BanDat = (TextView)view.findViewById(R.id.txt_customstatistic_BanDat);
@@ -76,14 +78,14 @@ public class AdapterDisplayStatistic extends BaseAdapter {
         }else {
             viewHolder.txt_customstatistic_TrangThai.setText("Chưa thanh toán");
         }
-        NhanVienDTO nhanVienDTO = nhanVienDAO.LayNVTheoMa(donDatDTO.getMaNV());
-        viewHolder.txt_customstatistic_TenNV.setText(nhanVienDTO.getHOTENNV());
+        KhachHangDTO khachHangDTO = khachHangDAO.LayKHTheoMa(donDatDTO.getMaNV());
+        viewHolder.txt_detailstatistic_TenKH.setText(khachHangDTO.getHOTENKH());
         viewHolder.txt_customstatistic_BanDat.setText(banAnDAO.LayTenBanTheoMa(donDatDTO.getMaBan()));
 
         return view;
     }
     public class ViewHolder{
-        TextView txt_customstatistic_MaDon, txt_customstatistic_NgayDat, txt_customstatistic_TenNV
+        TextView txt_customstatistic_MaDon, txt_customstatistic_NgayDat, txt_detailstatistic_TenKH
                 ,txt_customstatistic_TongTien,txt_customstatistic_TrangThai, txt_customstatistic_BanDat;
 
     }

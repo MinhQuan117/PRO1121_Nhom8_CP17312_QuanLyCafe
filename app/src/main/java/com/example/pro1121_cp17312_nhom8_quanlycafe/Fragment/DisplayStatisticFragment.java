@@ -28,7 +28,7 @@ public class DisplayStatisticFragment extends Fragment {
     DonDatDAO donDatDAO;
     AdapterDisplayStatistic adapterDisplayStatistic;
     FragmentManager fragmentManager;
-    int madon, manv, maban;
+    int madon, makh, maban;
     String ngaydat, tongtien;
 
     @Override
@@ -49,14 +49,14 @@ public class DisplayStatisticFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 madon = donDatDTOS.get(position).getMaDonDat();
-                manv = donDatDTOS.get(position).getMaNV();
+                makh = donDatDTOS.get(position).getMaKH();
                 maban = donDatDTOS.get(position).getMaBan();
                 ngaydat = donDatDTOS.get(position).getNgayDat();
                 tongtien = donDatDTOS.get(position).getTongTien();
 
                 Intent intent = new Intent(getActivity(), DetailStatisticActivity.class);
                 intent.putExtra("madon",madon);
-                intent.putExtra("manv",manv);
+                intent.putExtra("makh",makh);
                 intent.putExtra("maban",maban);
                 intent.putExtra("ngaydat",ngaydat);
                 intent.putExtra("tongtien",tongtien);
