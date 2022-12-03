@@ -135,7 +135,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
 
                 });
             }
-            TXT_payment_TongTien.setText(String.valueOf(tongtien) +" VNĐ");
+            TXT_payment_TongTien.setText("chưa đặt đồ");
 
         }
 

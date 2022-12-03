@@ -24,6 +24,8 @@ import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.DisplayCategoryFrag
 import com.example.pro1121_cp17312_nhom8_quanlycafe.MainActivity;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.R;
 
+import org.w3c.dom.Text;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -94,7 +96,6 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
         String kttinhtrang = banAnDAO.LayTinhTrangBanTheoMa(banAnDTO.getMaBan());
         if(kttinhtrang.equals("true")){
             viewHolder.imgBanAn.setImageResource(R.drawable.table_seat);
-
         }else {
             viewHolder.imgBanAn.setImageResource(R.drawable.table_coffee);
             AnButton();
@@ -133,6 +134,7 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
                 break;
 
             case R.id.img_customtable_AnNut:
+                viewHolder.imgBanAn.setImageResource(R.drawable.table_coffee);
                 AnButton();
                 viewHolder.imgBanAn.setImageResource(R.drawable.table_coffee);
                 break;
@@ -150,6 +152,8 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
                     donDatDTO.setTinhTrang("false");
                     donDatDTO.setTongTien("0");
 
+                    HienThi();
+
                     long ktra = donDatDAO.ThemDonDat(donDatDTO);
                     banAnDAO.CapNhatTinhTrangBan(maban,"true");
                     if(ktra == 0){ Toast.makeText(context,context.getResources().getString(R.string.add_failed),Toast.LENGTH_SHORT).show(); }
@@ -163,6 +167,7 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
 
                 transaction.replace(R.id.contentView,displayCategoryFragment).addToBackStack("hienthibanan");
                 transaction.commit();
+
                 break;
 
             case R.id.img_customtable_ThanhToan:
@@ -186,8 +191,15 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
         viewHolder.imgAnNut.setVisibility(View.INVISIBLE);
     }
 
+    private void HienThi(){
+        viewHolder.imgGoiMon.setVisibility(View.VISIBLE);
+        viewHolder.imgThanhToan.setVisibility(View.VISIBLE);
+        viewHolder.imgAnNut.setVisibility(View.VISIBLE);
+    }
+
+
     public class ViewHolder{
         ImageView imgBanAn, imgGoiMon, imgThanhToan, imgAnNut;
-        TextView txtTenBanAn;
+        TextView txtTenBanAn, bandaduocdat;
     }
 }
