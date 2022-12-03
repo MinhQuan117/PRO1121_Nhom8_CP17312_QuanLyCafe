@@ -26,7 +26,7 @@ public class DetailStatisticActivity extends AppCompatActivity {
 
     ImageView img_detailstatistic_backbtn;
     TextView txt_detailstatistic_MaDon,txt_detailstatistic_NgayDat,txt_detailstatistic_TenBan
-            ,txt_detailstatistic_TenNV,txt_detailstatistic_TongTien;
+            ,txt_detailstatistic_TenKH,txt_detailstatistic_TongTien;
     GridView gvDetailStatistic;
     int madon, makh, maban;
     String ngaydat, tongtien;
@@ -43,7 +43,7 @@ public class DetailStatisticActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         madon = intent.getIntExtra("madon",0);
-        makh = intent.getIntExtra("manv",0);
+        makh = intent.getIntExtra("makh",0);
         maban = intent.getIntExtra("maban",0);
         ngaydat = intent.getStringExtra("ngaydat");
         tongtien = intent.getStringExtra("tongtien");
@@ -52,7 +52,7 @@ public class DetailStatisticActivity extends AppCompatActivity {
         txt_detailstatistic_MaDon = (TextView)findViewById(R.id.txt_detailstatistic_MaDon);
         txt_detailstatistic_NgayDat = (TextView)findViewById(R.id.txt_detailstatistic_NgayDat);
         txt_detailstatistic_TenBan = (TextView)findViewById(R.id.txt_detailstatistic_TenBan);
-        txt_detailstatistic_TenNV = (TextView)findViewById(R.id.txt_detailstatistic_TenNV);
+        txt_detailstatistic_TenKH = (TextView)findViewById(R.id.txt_detailstatistic_TenKH);
         txt_detailstatistic_TongTien = (TextView)findViewById(R.id.txt_detailstatistic_TongTien);
         gvDetailStatistic = (GridView)findViewById(R.id.gvDetailStatistic);
 
@@ -66,7 +66,7 @@ public class DetailStatisticActivity extends AppCompatActivity {
             txt_detailstatistic_TongTien.setText(tongtien+" VNĐ");
 
             KhachHangDTO khachHangDTO = khachHangDAO.LayKHTheoMa(makh);
-            txt_detailstatistic_TenNV.setText(khachHangDTO.getHOTENKH());
+            txt_detailstatistic_TenKH.setText(khachHangDTO.getHOTENKH());
             txt_detailstatistic_TenBan.setText(banAnDAO.LayTenBanTheoMa(maban));
 
             HienThiDSCTDD();
