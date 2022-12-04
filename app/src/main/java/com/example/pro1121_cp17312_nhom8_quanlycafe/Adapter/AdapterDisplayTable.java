@@ -158,6 +158,8 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
                     banAnDAO.CapNhatTinhTrangBan(maban,"true");
                     if(ktra == 0){ Toast.makeText(context,context.getResources().getString(R.string.add_failed),Toast.LENGTH_SHORT).show(); }
                 }
+
+
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 DisplayCategoryFragment displayCategoryFragment = new DisplayCategoryFragment();
 
@@ -176,6 +178,7 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
                 iThanhToan.putExtra("tenban",tenban);
                 iThanhToan.putExtra("ngaydat",ngaydat);
                 context.startActivity(iThanhToan);
+                AnButton();
                 break;
         }
     }

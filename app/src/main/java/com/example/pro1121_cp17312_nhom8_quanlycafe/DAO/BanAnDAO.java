@@ -75,7 +75,7 @@ public class BanAnDAO {
         Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
-            tinhtrang = cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_MON_TINHTRANG));
+            tinhtrang = cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_BAN_TINHTRANG));
             cursor.moveToNext();
         }
 

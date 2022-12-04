@@ -1,6 +1,7 @@
 package com.example.pro1121_cp17312_nhom8_quanlycafe.Activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -47,6 +48,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
     List<ThanhToanDTO> thanhToanDTOS;
     AdapterDisplayPayment adapterDisplayPayment;
     long tongtien = 0;
+    long tongtien2 = 0;
     int maban, madondat;
     FragmentManager fragmentManager;
     Spinner spinnerKhachHang;
@@ -101,7 +103,12 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         spinnerKhachHang.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                HashMap<String,String> hashMap = (HashMap<String, String>) spinnerKhachHang.getSelectedItem();
+                String tenKH = hashMap.get("tenKH");
 
+                Intent intent = new Intent();
+                intent.putExtra("tenKH",tenKH);
+                setResult(RESULT_OK,intent);
 
             }
 
@@ -112,23 +119,21 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         });
         if(maban !=0 ){
             HienThiThanhToan();
-
-
             for (int i=0;i<thanhToanDTOS.size();i++) {
                 int soluong = thanhToanDTOS.get(i).getSoLuong();
-                String ghichu = thanhToanDTOS.get(i).getGhiChu();
                 int giatien = thanhToanDTOS.get(i).getGiaTien();
-                tongtien = (soluong * giatien);
+                tongtien += (soluong * giatien);
+                tongtien2 = (long) (tongtien * 0.9);
 
                 ChkisVIP.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                         if (ChkisVIP.isChecked()) {
-                            tongtien = (long) (tongtien * 0.9);
-                            TXT_payment_TongTien.setText(String.valueOf(tongtien) +" VNĐ");
+                            tongtien2 = tongtien2;
+                            TXT_payment_TongTien.setText(String.valueOf(tongtien2) +" VNĐ");
                         } else {
-                            tongtien = (soluong*giatien);
+                            tongtien = tongtien;
                             TXT_payment_TongTien.setText(String.valueOf(tongtien) +" VNĐ");
                         }
                     }
@@ -148,16 +153,33 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         int id = v.getId();
         switch (id){
             case R.id.btn_payment_ThanhToan:
-                boolean ktraban = banAnDAO.CapNhatTinhTrangBan(maban,"false");
-                boolean ktradondat = donDatDAO.UpdateTThaiDonTheoMaBan(maban,"true");
-                boolean ktratongtien = donDatDAO.UpdateTongTienDonDat(madondat,String.valueOf(tongtien));
-                if(ktraban && ktradondat && ktratongtien){
-                    HienThiThanhToan();
-                    TXT_payment_TongTien.setText("0 VNĐ");
-                    Toast.makeText(getApplicationContext(),"Thanh toán thành công!",Toast.LENGTH_SHORT);
-                }else{
-                    Toast.makeText(getApplicationContext(),"Lỗi thanh toán!",Toast.LENGTH_SHORT);
+                if (ChkisVIP.isChecked()){
+                    boolean ktraban = banAnDAO.CapNhatTinhTrangBan(maban,"false");
+                    boolean ktradondat = donDatDAO.UpdateTThaiDonTheoMaBan(maban,"true");
+
+                    boolean ktratongtien2 = donDatDAO.UpdateTongTienDonDat(madondat,String.valueOf(tongtien2));
+                    if(ktraban && ktradondat && ktratongtien2){
+                        HienThiThanhToan();
+                        TXT_payment_TongTien.setText("0 VNĐ");
+                        Toast.makeText(getApplicationContext(),"Thanh toán thành công!",Toast.LENGTH_SHORT);
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Lỗi thanh toán!",Toast.LENGTH_SHORT);
+                    }
                 }
+                else {
+                    boolean ktraban = banAnDAO.CapNhatTinhTrangBan(maban,"false");
+                    boolean ktradondat = donDatDAO.UpdateTThaiDonTheoMaBan(maban,"true");
+                    boolean ktratongtien = donDatDAO.UpdateTongTienDonDat(madondat,String.valueOf(tongtien));
+
+                    if(ktraban && ktradondat && ktratongtien ){
+                        HienThiThanhToan();
+                        TXT_payment_TongTien.setText("0 VNĐ");
+                        Toast.makeText(getApplicationContext(),"Thanh toán thành công!",Toast.LENGTH_SHORT);
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Lỗi thanh toán!",Toast.LENGTH_SHORT);
+                    }
+                }
+
                 break;
 
             case R.id.img_payment_backbtn:

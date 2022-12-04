@@ -23,7 +23,7 @@ public class DonDatDAO {
     public long ThemDonDat(DonDatDTO donDatDTO){
         ContentValues contentValues = new ContentValues();
         contentValues.put(CreateDatabase.TBL_DONDAT_MABAN,donDatDTO.getMaBan());
-        contentValues.put(CreateDatabase.TBL_DONDAT_MANV,donDatDTO.getMaNV());
+        contentValues.put(CreateDatabase.TBL_DONDAT_MAKH,donDatDTO.getMaKH());
         contentValues.put(CreateDatabase.TBL_DONDAT_NGAYDAT,donDatDTO.getNgayDat());
         contentValues.put(CreateDatabase.TBL_DONDAT_TINHTRANG,donDatDTO.getTinhTrang());
         contentValues.put(CreateDatabase.TBL_DONDAT_TONGTIEN,donDatDTO.getTongTien());
