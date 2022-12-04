@@ -70,10 +70,12 @@ public class AmountMenuActivity extends AppCompatActivity {
                     }
                 }else {
                     int sluong = Integer.parseInt(TXTL_amountmenu_SoLuong.getEditText().getText().toString());
+                    String ghichu = TXTL_amountmenu_GhiChu.getEditText().getText().toString();
                     ChiTietDonDatDTO chiTietDonDatDTO = new ChiTietDonDatDTO();
                     chiTietDonDatDTO.setMaMon(mamon);
                     chiTietDonDatDTO.setMaDonDat(madondat);
                     chiTietDonDatDTO.setSoLuong(sluong);
+                    chiTietDonDatDTO.setGhichu(ghichu);
 
                     boolean ktracapnhat = chiTietDonDatDAO.ThemChiTietDonDat(chiTietDonDatDTO);
                     if(ktracapnhat){
