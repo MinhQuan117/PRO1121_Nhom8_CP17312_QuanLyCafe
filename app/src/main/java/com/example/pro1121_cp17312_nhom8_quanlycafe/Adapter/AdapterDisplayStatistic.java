@@ -77,6 +77,7 @@ public class AdapterDisplayStatistic extends BaseAdapter {
             viewHolder.txt_customstatistic_TrangThai.setText("Đã thanh toán");
         }else {
             viewHolder.txt_customstatistic_TrangThai.setText("Chưa thanh toán");
+            viewHolder.txt_customstatistic_TongTien.setText("chưa đặt đồ");
         }
         KhachHangDTO khachHangDTO = khachHangDAO.LayKHTheoMa(donDatDTO.getMaNV());
         viewHolder.txt_detailstatistic_TenKH.setText(khachHangDTO.getHOTENKH());

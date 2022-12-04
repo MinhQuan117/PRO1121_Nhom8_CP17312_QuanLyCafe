@@ -88,8 +88,13 @@
     <Spinner
         android:id="@+id/SpinnerKhachHang"
         android:layout_width="match_parent"
+
         android:layout_height="39dp"
         android:textSize="30dp"
+
+        android:layout_height="20dp"
+        android:layout_margin="10dp"
+
         />
     <RelativeLayout
         android:layout_width="match_parent"
@@ -113,11 +118,12 @@
                 android:layout_height="wrap_content"
                 android:text="Tổng tiền"
                 android:textColor="@color/black"
-
+                android:layout_marginLeft="35dp"
                 android:fontFamily="@font/muli_black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
+
             <CheckBox
                 android:id="@+id/ChkVip"
                 android:layout_width="wrap_content"
@@ -138,14 +144,14 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:layout_marginLeft="5dp"/>
+                android:layout_marginLeft="35dp"/>
 
         </LinearLayout>
 
         <Button
             android:id="@+id/btn_payment_ThanhToan"
             android:layout_centerVertical="true"
-            android:layout_width="120dp"
+            android:layout_width="130dp"
             android:padding="10dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
