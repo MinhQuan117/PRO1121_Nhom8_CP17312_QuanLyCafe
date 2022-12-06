@@ -71,7 +71,7 @@ public class AdapterDisplayStatistic extends BaseAdapter {
 
         viewHolder.txt_customstatistic_MaDon.setText("Mã đơn: "+donDatDTO.getMaDonDat());
         viewHolder.txt_customstatistic_NgayDat.setText(donDatDTO.getNgayDat());
-        viewHolder.txt_customstatistic_TongTien.setText(donDatDTO.getTongTien()+" VNĐ");
+        viewHolder.txt_customstatistic_TongTien.setText(donDatDTO.getTongTien()+ " VNĐ");
         if (donDatDTO.getTinhTrang().equals("true"))
         {
             viewHolder.txt_customstatistic_TrangThai.setText("Đã thanh toán");

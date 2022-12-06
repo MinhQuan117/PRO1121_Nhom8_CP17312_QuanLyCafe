@@ -88,13 +88,9 @@
     <Spinner
         android:id="@+id/SpinnerKhachHang"
         android:layout_width="match_parent"
-
-        android:layout_height="39dp"
-        android:textSize="30dp"
-
         android:layout_height="20dp"
+        android:textSize="30dp"
         android:layout_margin="10dp"
-
         />
     <RelativeLayout
         android:layout_width="match_parent"

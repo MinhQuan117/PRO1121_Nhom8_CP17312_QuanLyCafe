@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.DisplayCustomerFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -147,6 +148,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_logout:
                 //gọi activity ra trang welcome
+                Toast.makeText(this, "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),DangNhapActivity.class);
                 startActivity(intent);
                 break;

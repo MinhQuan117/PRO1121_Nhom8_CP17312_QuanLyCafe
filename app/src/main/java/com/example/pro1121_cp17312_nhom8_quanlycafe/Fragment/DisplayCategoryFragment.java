@@ -117,7 +117,7 @@ public class DisplayCategoryFragment extends Fragment {
     @Override
     public void onCreateContextMenu(ContextMenu menu,View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        getActivity().getMenuInflater().inflate(R.menu.edit_context_menu,menu);
+        getActivity().getMenuInflater().inflate(R.menu.edit_menu,menu);
     }
 
     //xử lí context menu
@@ -135,17 +135,6 @@ public class DisplayCategoryFragment extends Fragment {
                 resultLauncherCategory.launch(iEdit);
                 break;
 
-            case R.id.itDelete:
-                boolean ktra = loaiMonDAO.XoaLoaiMon(maloai);
-                if(ktra){
-                    HienThiDSLoai();
-                    Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.delete_sucessful)
-                            ,Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.delete_failed)
-                            ,Toast.LENGTH_SHORT).show();
-                }
-                break;
         }
 
         return true;
