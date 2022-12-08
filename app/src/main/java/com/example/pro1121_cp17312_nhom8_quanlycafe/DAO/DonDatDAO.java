@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.DonDatDTO;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.MonDTO;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.DTO.top;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Database.CreateDatabase;
 
 
@@ -110,5 +112,21 @@ public class DonDatDAO {
             return false;
         }
     }
+
+
+    public int getDoanhThu(String min, String max) {
+        String sqlDoanhThu = "Select Sum("+  CreateDatabase.TBL_DONDAT_TONGTIEN  +") as doanhThu from "+CreateDatabase.TBL_DONDAT +" Where "+CreateDatabase.TBL_DONDAT_NGAYDAT+" between ? and ?";
+        List<Integer> list = new ArrayList<>();
+        Cursor cursor = database.rawQuery(sqlDoanhThu, new String[]{min, max});
+        while (cursor.moveToNext()) {
+            try {
+                list.add(Integer.parseInt(cursor.getString(cursor.getColumnIndex("doanhThu"))));
+            } catch (Exception e) {
+                list.add(0);
+            }
+        }
+        return list.get(0);
+    }
+
 
 }

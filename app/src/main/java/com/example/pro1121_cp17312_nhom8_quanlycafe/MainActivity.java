@@ -17,6 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.DisplayCustomerFragment;
+import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.DisplayTKFragment;
+
+import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.ThongKeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.example.pro1121_cp17312_nhom8_quanlycafe.Fragment.DisplayHomeFragment;
@@ -139,6 +142,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 DisplayCustomerFragment displayCustomerFragment = new DisplayCustomerFragment();
                 tranDisplayStaff.replace(R.id.contentView,displayCustomerFragment);
                 tranDisplayStaff.commit();
+                navigationView.setCheckedItem(item.getItemId());
+                drawerLayout.closeDrawers();
+
+
+
+                break;
+
+            case R.id.nav_thongke:
+
+                //hiển thị tương ứng trên navigation
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                ThongKeFragment displayThongKeFragment = new ThongKeFragment();
+                transaction.replace(R.id.contentView,displayThongKeFragment);
+                transaction.commit();
                 navigationView.setCheckedItem(item.getItemId());
                 drawerLayout.closeDrawers();
 
