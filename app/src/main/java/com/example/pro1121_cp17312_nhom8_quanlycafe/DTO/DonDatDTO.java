@@ -3,7 +3,15 @@ package com.example.pro1121_cp17312_nhom8_quanlycafe.DTO;
 public class DonDatDTO {
 
     int MaDonDat,MaBan ,MaNV,MaKH;
-    String TinhTrang,NgayDat,TongTien;
+    String TinhTrang,NgayDat,TongTien, Tenkhachhang;
+
+    public String getTenkhachhang() {
+        return Tenkhachhang;
+    }
+
+    public void setTenkhachhang(String tenkhachhang) {
+        Tenkhachhang = tenkhachhang;
+    }
 
     public int getMaKH() {
         return MaKH;

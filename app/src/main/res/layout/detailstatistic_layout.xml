@@ -109,17 +109,17 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
+
             <TextView
                 android:id="@+id/txt_detailstatistic_TenKH"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txt_detailstatistic_TenBan"
-                android:textColor="@color/white"
-                android:text="Nhóm 8"
                 android:fontFamily="@font/muli_black"
-                android:textSize="22sp"
                 android:paddingBottom="5dp"
-                />
+                android:text="Nhóm 8"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
 
         </LinearLayout>
 

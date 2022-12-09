@@ -70,6 +70,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
     public static String TBL_CHITIETDONDAT_MAMON = "MAMON";
     public static String TBL_CHITIETDONDAT_SOLUONG = "SOLUONG";
     public static String TBL_CHITIETDONDAT_GHICHU = "GHICHU";
+    public static String TBL_CHITIETDONDAT_TENKHACHHANG = "TENKHACHHANG";
 
 
     public CreateDatabase(Context context) {
@@ -105,7 +106,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
                 +TBL_DONDAT_TINHTRANG+ " TEXT )" ;
 
         String tblCHITIETDONDAT = "CREATE TABLE " +TBL_CHITIETDONDAT+ " ( " +TBL_CHITIETDONDAT_MADONDAT+ " INTEGER, "
-                +TBL_CHITIETDONDAT_MAMON+ " INTEGER," +TBL_CHITIETDONDAT_SOLUONG+ " INTEGER, "+TBL_CHITIETDONDAT_GHICHU+" TEXT, "
+                +TBL_CHITIETDONDAT_MAMON+ " INTEGER," +TBL_CHITIETDONDAT_SOLUONG+ " INTEGER, "+TBL_CHITIETDONDAT_GHICHU+" TEXT, "+TBL_CHITIETDONDAT_TENKHACHHANG+" TEXT, "
                 + " PRIMARY KEY ( " +TBL_CHITIETDONDAT_MADONDAT+ "," +TBL_CHITIETDONDAT_MAMON+ "))";
 
         db.execSQL(tblNHANVIEN);

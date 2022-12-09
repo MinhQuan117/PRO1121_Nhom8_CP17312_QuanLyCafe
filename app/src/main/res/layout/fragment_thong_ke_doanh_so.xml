@@ -81,7 +81,7 @@
             android:id="@+id/tvTongDoanhThu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:text="Tổng doanh thu:"
             android:textAlignment="textStart"
             android:background="#A8924D"

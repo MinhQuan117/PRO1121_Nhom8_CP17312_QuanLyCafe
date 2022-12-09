@@ -65,6 +65,7 @@ public class AmountMenuActivity extends AppCompatActivity {
                     boolean ktracapnhat = chiTietDonDatDAO.CapNhatSL(chiTietDonDatDTO);
                     if(ktracapnhat){
                         Toast.makeText(getApplicationContext(),getResources().getString(R.string.add_sucessful),Toast.LENGTH_SHORT).show();
+                        onBackPressed();
                     }else {
                         Toast.makeText(getApplicationContext(),getResources().getString(R.string.add_failed),Toast.LENGTH_SHORT).show();
                     }
@@ -80,6 +81,7 @@ public class AmountMenuActivity extends AppCompatActivity {
                     boolean ktracapnhat = chiTietDonDatDAO.ThemChiTietDonDat(chiTietDonDatDTO);
                     if(ktracapnhat){
                         Toast.makeText(getApplicationContext(),getResources().getString(R.string.add_sucessful),Toast.LENGTH_SHORT).show();
+                        onBackPressed();
                     }else {
                         Toast.makeText(getApplicationContext(),getResources().getString(R.string.add_failed),Toast.LENGTH_SHORT).show();
                     }

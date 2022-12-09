@@ -129,7 +129,7 @@ Button btnTuNgay , btnDenNgay , btnDoanhThu;
                 String tuNgay = edTuNgay.getText().toString();
                 String denNgay = edDenNgay.getText().toString();
                 DonDatDAO phieuMuonDAO = new DonDatDAO(getContext());
-                tvDoanhThu.setText("Doanh Thu: "+phieuMuonDAO.getDoanhThu(tuNgay , denNgay));
+                tvDoanhThu.setText("Doanh thu : "+phieuMuonDAO.getDoanhThu(tuNgay , denNgay) +" VNĐ");
 //                donDatDTOS = donDatDAO.LayDSDonDat();
 //                adapterDisplayStatistic = new AdapterDisplayStatistic(getActivity(), R.layout.custom_layout_displaystatistic,donDatDTOS);
 //                lvStatistic.setAdapter(adapterDisplayStatistic);

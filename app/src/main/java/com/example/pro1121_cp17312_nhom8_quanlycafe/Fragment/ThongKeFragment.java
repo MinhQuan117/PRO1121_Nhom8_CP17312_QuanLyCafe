@@ -35,7 +35,7 @@ public class ThongKeFragment extends Fragment {
         //set togle bar cho fragment menu
         tb = view.findViewById(R.id.tg_bar);
         TextView toolbar_title = view.findViewById(R.id.toolbar_title);
-        toolbar_title.setText("THỐNG KÊ");
+        toolbar_title.setText("");
         toolbar_title.setTypeface(Typeface.DEFAULT_BOLD);
         //
 

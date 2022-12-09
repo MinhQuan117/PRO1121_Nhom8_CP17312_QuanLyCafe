@@ -62,6 +62,7 @@ public class ChiTietDonDatDAO {
         contentValues.put(CreateDatabase.TBL_CHITIETDONDAT_GHICHU,chiTietDonDatDTO.getGhichu());
         contentValues.put(CreateDatabase.TBL_CHITIETDONDAT_MADONDAT,chiTietDonDatDTO.getMaDonDat());
         contentValues.put(CreateDatabase.TBL_CHITIETDONDAT_MAMON,chiTietDonDatDTO.getMaMon());
+        contentValues.put(CreateDatabase.TBL_CHITIETDONDAT_TENKHACHHANG,chiTietDonDatDTO.getTenkhachhang());
 
         long ktra = database.insert(CreateDatabase.TBL_CHITIETDONDAT,null,contentValues);
         if(ktra !=0){

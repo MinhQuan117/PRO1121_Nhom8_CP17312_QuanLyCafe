@@ -70,10 +70,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerToggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-        //Tụ động gán tên nv đăng nhập qua Extras
-        Intent intent = getIntent();
-        String tendn = intent.getStringExtra("tendn");
-        TXT_menu_tennv.setText( "Xin chào " + tendn +" !!");
 
         //lấy file share prefer
         sharedPreferences = getSharedPreferences("luuquyen", Context.MODE_PRIVATE);

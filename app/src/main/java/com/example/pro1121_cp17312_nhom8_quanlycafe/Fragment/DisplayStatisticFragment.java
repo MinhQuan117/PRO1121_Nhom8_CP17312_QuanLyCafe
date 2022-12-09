@@ -29,7 +29,7 @@ public class DisplayStatisticFragment extends Fragment {
     AdapterDisplayStatistic adapterDisplayStatistic;
     FragmentManager fragmentManager;
     int madon, makh, maban;
-    String ngaydat, tongtien;
+    String ngaydat, tongtien, tenkhachhang;
 
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
@@ -53,6 +53,7 @@ public class DisplayStatisticFragment extends Fragment {
                 maban = donDatDTOS.get(position).getMaBan();
                 ngaydat = donDatDTOS.get(position).getNgayDat();
                 tongtien = donDatDTOS.get(position).getTongTien();
+                tenkhachhang = donDatDTOS.get(position).getTenkhachhang();
 
                 Intent intent = new Intent(getActivity(), DetailStatisticActivity.class);
                 intent.putExtra("madon",madon);
@@ -60,6 +61,7 @@ public class DisplayStatisticFragment extends Fragment {
                 intent.putExtra("maban",maban);
                 intent.putExtra("ngaydat",ngaydat);
                 intent.putExtra("tongtien",tongtien);
+                intent.putExtra("tenkhachhang", tenkhachhang);
                 startActivity(intent);
             }
         });

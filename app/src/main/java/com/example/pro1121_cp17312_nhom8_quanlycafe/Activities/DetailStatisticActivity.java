@@ -29,7 +29,7 @@ public class DetailStatisticActivity extends AppCompatActivity {
             ,txt_detailstatistic_TenKH,txt_detailstatistic_TongTien;
     GridView gvDetailStatistic;
     int madon, makh, maban;
-    String ngaydat, tongtien;
+    String ngaydat, tongtien, tenkhachhang;
     KhachHangDAO khachHangDAO;
     BanAnDAO banAnDAO;
     List<ThanhToanDTO> thanhToanDTOList;
@@ -47,6 +47,7 @@ public class DetailStatisticActivity extends AppCompatActivity {
         maban = intent.getIntExtra("maban",0);
         ngaydat = intent.getStringExtra("ngaydat");
         tongtien = intent.getStringExtra("tongtien");
+        tenkhachhang = intent.getStringExtra("tenkhachhang");
 
         img_detailstatistic_backbtn = (ImageView)findViewById(R.id.img_detailstatistic_backbtn);
         txt_detailstatistic_MaDon = (TextView)findViewById(R.id.txt_detailstatistic_MaDon);
