@@ -44,7 +44,9 @@ public class ThongKeFragment extends Fragment {
 
         adapter = new TabAdapter(getActivity().getSupportFragmentManager());
         adapter.addFragment(new DisplayTKFragment(), "Doanh số");
-        adapter.addFragment(new FrmTop(), "Top sản phẩm bán chạy");
+
+        // Thống kê số lần đồ uống đc gọi trong các đơn đặt
+//        adapter.addFragment(new FrmTop(), "Top sản phẩm bán chạy");
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);

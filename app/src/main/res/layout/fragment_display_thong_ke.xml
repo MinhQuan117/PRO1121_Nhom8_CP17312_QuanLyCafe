@@ -22,7 +22,6 @@
         <EditText
             android:id="@+id/edTuNgay"
             android:hint="Ex: 2022-12-1"
-            android:text="08-12-2022"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
